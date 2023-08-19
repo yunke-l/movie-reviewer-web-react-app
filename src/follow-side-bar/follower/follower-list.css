@@ -1,0 +1,60 @@
+.followers-list {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-height: 400px;
+}
+
+.followers-list h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.followers-list ul {
+  overflow: auto;
+  max-height: 280px; /* Adjust the height as needed */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left
+}
+
+.follower-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.people-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.people-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.people-name {
+  font-size: 18px;
+  margin: 0;
+}
+
+.people-level {
+  font-size: 14px;
+  color: #777;
+}
+
+
+.toggle-button {
+  text-align: center;
+  cursor: pointer;
+  color: #888; /* Adjust the color */
+  margin-top: 10px;
+}

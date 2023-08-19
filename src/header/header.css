@@ -1,0 +1,95 @@
+.profile-header {
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  display: flex;
+  justify-content: flex-start; /* Align items to the left */
+  align-items: flex-end;
+  padding: 20px;
+}
+
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 10px; /* Add some margin to the left side */
+}
+
+.user-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+  margin-left: 0; /* Remove left margin for the user icon */
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align text to the left */
+}
+
+
+
+.user-header {
+  display: flex;
+  align-items: center;
+}
+
+.user-name {
+  font-size: 24px;
+  margin: 0;
+  margin-right: 10px;
+}
+
+.user-level {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: #ff9900; /* Orange color */
+}
+
+.level-text {
+  margin-right: 5px;
+}
+
+.user-level i {
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+
+
+.user-signature {
+  font-size: 16px;
+  margin: 0;
+  width: 100%;
+  resize: none;
+  border: none;
+  background-color: transparent;
+  color: #333;
+}
+
+.signature-container {
+  position: relative;
+}
+
+.signature-text {
+  font-size: 16px;
+  margin: 0;
+  padding-right: 30px; /* Add spacing for the edit icon */
+  white-space: pre-wrap; /* Allow line breaks */
+}
+
+.signature-text i {
+  position: absolute;
+  right: 0;
+  font-size: 14px;
+  color: #999; /* Grey color for the edit icon */
+  cursor: pointer;
+}
+
+
