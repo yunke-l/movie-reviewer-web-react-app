@@ -16,15 +16,6 @@ const MovieReviews = ({ imdbid }) => {
     const filteredPosts = posts.filter(post => post.imdbid === imdbid);
 
   return (
-    // <div className="movie-reviews">
-    //   <h2>Movie Reviews</h2>
-    //   {filteredPosts.map((post) => (
-    //     <div key={post._id} className="review">
-    //       <h3>{post.title}</h3>
-    //       <p>{post.content}</p>
-    //     </div>
-    //   ))}
-    // </div>
     <div className="movie-reviews">
     <h2 className="reviews-heading">Movie Reviews</h2>
     {filteredPosts.map((post) => (

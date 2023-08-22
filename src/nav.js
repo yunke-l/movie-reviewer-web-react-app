@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 function Nav() {
     const { currentUser } = useSelector((state) => state.user);
     const dispatch = useDispatch();
-    const navigate = useNavigate(); // If you're using React Router
+    const navigate = useNavigate();
     const id = currentUser ? currentUser.id : null;
   
     return (

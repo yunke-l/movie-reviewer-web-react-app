@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import './details.css';
 import { createPostThunk } from "../services/posts-thunks";
 // import format from "date-fns/format";
@@ -14,6 +14,8 @@ const PostReview = ({ imdbid, moviePoster, movieTitle, onPostReview })  => {
     const currentTimestamp = new Date();
 
     const dispatch = useDispatch();
+    const { currentUser } = useSelector((state) => state.user); // Access current user from Redux state
+    
     const handlePostClick = () => {
 
         // Perform content validation
@@ -28,7 +30,9 @@ const PostReview = ({ imdbid, moviePoster, movieTitle, onPostReview })  => {
             movieTitle: movieTitle,   // Include movie title
             createdAt: currentTimestamp,
             imdbid: imdbid,
-            // Add other relevant data like movie ID or user info
+            userId: currentUser._id,
+            username: currentUser.username,
+            userAvatar: currentUser.avatar,
         };
 
         // Dispatch the createPostThunk with the new post data

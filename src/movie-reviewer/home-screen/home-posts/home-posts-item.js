@@ -4,7 +4,6 @@ import { useState } from "react";
 import { utcToZonedTime, format } from 'date-fns-tz';
 
 
-
 import {deletePostThunk} from "../../services/posts-thunks";
 import "./style.css";
 
@@ -13,6 +12,29 @@ const PostItem = (
   { post }
   ) => {
   const dispatch = useDispatch();
+
+//   const user = useSelector((state) => state.user); // Assuming your user data is in the Redux state
+
+//   const [userDetails, setUserDetails] = useState({
+//       avatar: "",
+//       name: "",
+//   });
+
+//   useEffect(() => {
+//     // Fetch the user details based on userId
+//     dispatch(fetchUserById(post.userId))
+//         .then((user) => {
+//             setUserDetails({
+//                 avatar: user.avatar,
+//                 name: user.name,
+//             });
+//         })
+//         .catch((error) => {
+//             console.error("Error fetching user details:", error);
+//         });
+// }, [dispatch, post.userId]);
+
+
   const deletepostHandler = (id) => {
       dispatch(deletePostThunk(id));
   }
@@ -30,83 +52,38 @@ const PostItem = (
     const formattedTime = format(vancouverCreatedAt, "MMM dd, yyyy HH:mm:ss");
 
     return (
-      //   <li className="list-group-item">
-      //   <div className="row">
-      //     <div className="col-10">
-      //       {/* <div>{post.handle} · {post.time}</div> */}
-      //       <div className="fw-bolder">{post.title}</div>
-      //       <div>{post.content}</div>
-      //     </div>
-      //     {/* <div className="col-2">
-      //       <img width={70} className="float-end rounded-3" src={`/images/${post.image}`}/>
-      //     </div> */}
-      //   </div>
-      //  </li>
-
-
-    //   <div className="post-item">
-    //   <div className="post-header">
-    //     <img
-    //       className="user-avatar"
-    //       src={post.user.avatar}
-    //       alt={`${post.user.name}'s Avatar`}
-    //     />
-    //     <div className="post-details">
-    //       <div className="post-title">{post.title}</div>
-    //       <div className="post-subtitle">
-    //         {post.user.name} - {post. createdAt}
-    //       </div>
-    //     </div>
-    //   </div>
-    //   <div className="post-content">{post.content}</div>
-    //   <button
-    //     className="delete-button"
-    //     onClick={() => deletepostHandler(post.id)}
-    //   >
-    //     Delete
-    //   </button>
-    // </div>
-
-  //   <button
-  //     className="delete-button"
-  //     onClick={() => deletepostHandler(post.id)}
-  //   >
-  //     Delete
-  //   </button>
-  // </div>
-
-  <div className="post-item">
-  <div className="movie-info">
-    <img
-      className="movie-photo"
-      src={post.moviePoster}
-      alt={`${post.movieTitle} Movie Poster`}
-    />
-    <div className="home-movie-title">{post.movieTitle}</div>
-  </div>
-  <div className="post-content-container">
-    <div className="post-header">
-      <img
-        className="user-avatar"
-        src={tempUser.avatar}
-        alt={`${post.username}'s Avatar`}
-      />
-      <div className="post-details">
-        <div className="post-title">{post.title}</div>
-        <div className="post-subtitle">
-          {post.username} - {formattedTime}
+        <div className="post-item">
+        <div className="movie-info">
+          <img
+            className="movie-photo"
+            src={post.moviePoster}
+            alt={`${post.movieTitle} Movie Poster`}
+          />
+          <div className="home-movie-title">{post.movieTitle}</div>
+        </div>
+        <div className="post-content-container">
+          <div className="post-header">
+            <img
+              className="user-avatar"
+              src={post.userAvatar}
+              alt={`${post.username}'s Avatar`}
+            />
+            <div className="post-details">
+              <div className="post-title">{post.title}</div>
+              <div className="post-subtitle">
+                {post.username} - {formattedTime}
+              </div>
+            </div>
+          </div>
+          <div className="post-content">{post.content}</div>
+          {/* <button
+            className="delete-button"
+            onClick={() => deletepostHandler(post.id)}
+          >
+            Delete
+          </button> */}
         </div>
       </div>
-    </div>
-    <div className="post-content">{post.content}</div>
-    {/* <button
-      className="delete-button"
-      onClick={() => deletepostHandler(post.id)}
-    >
-      Delete
-    </button> */}
-  </div>
-</div>
 
     );
 };
