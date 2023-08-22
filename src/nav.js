@@ -13,8 +13,6 @@ function Nav() {
     const navigate = useNavigate();
     const userID = user?._id;
 
-
-
     return (
       <nav className="nav nav-tabs mb-2">
         <Link className="nav-link" to="/reviewer/home">
