@@ -29,12 +29,11 @@ function ProfileVerified () {
         <HorizontalNavbarVerified />
 
         <Routes>
-          <Route path={`/reviewer/profile/${userID}`} element={<Navigate to={`/reviewer/profile/${userID}/home-page`} />} />
-          <Route path={`/reviewer/profile/${userID}/home-page`} element={<HomePage />} />
-          <Route path={`/reviewer/profile/${userID}/movie`} element={<MoviesPage />} />
-          <Route path={`/reviewer/profile/${userID}/post`} element={<PostPage />} />
-          <Route path={`/reviewer/profile/${userID}/favorite`} element={<FavoritePage />} />
-          <Route path={`/reviewer/profile/${userID}/setting`} element={<SettingPageVerified />} />
+          <Route path={`/home-page`} element={<HomePage />} />
+          <Route path={`/movie`} element={<MoviesPage />} />
+          <Route path={`/post`} element={<PostPage />} />
+          <Route path={`/favorite`} element={<FavoritePage />} />
+          <Route path={`/setting`} element={<SettingPageVerified />} />
         </Routes>
       </div>
   );
