@@ -5,33 +5,28 @@ import ProfileNormal from './profile-screen-normal';
 import ProfileVerified from './profile-screen-verified';
 import ProfileAnonymous from "./profile-screen-anonymous";
 import NotFoundComponent from './profile-screen-notfound';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {profileThunk} from "../movie-reviewer/services/auth-thunks";
+import {findUserByIdThunk} from "../movie-reviewer/services/user-thunks";
 
 const NODE_SERVER_URL = "http://localhost:4000";
 
 function UserProfile() {
   const currentUser = useSelector((state) => state.user.currentUser);
-  const id = currentUser?._id;
-  const [userData, setUserData] = useState(null);
+  const userID = currentUser?._id;
 
+  const dispatch = useDispatch()
   useEffect(() => {
-    console.log('Fetching user data for id:', id);
-    axios.get(`${NODE_SERVER_URL}/api/users/${id}`)
-    .then(response => {
-      setUserData(response.data);
-    })
-    .catch(error => {
-      console.error('Error fetching user data:', error);
-    });
+    console.log('Fetching user data for id:', userID)
+    dispatch(findUserByIdThunk(userID))
+  }, [])
 
-  }, [id]);
 
 
 
   let ProfileComponent;
 
-  switch (userData?.role) {
+  switch (currentUser?.role) {
     case 'regular':
       ProfileComponent = <ProfileNormal />;
       break;

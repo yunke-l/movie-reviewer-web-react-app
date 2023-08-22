@@ -1,9 +1,10 @@
 import React from 'react';
 import FollowSideBar from "../../../follow-side-bar/follow-side-bar";
 
-function HomePage () {
-
+const HomePage = () => {
+  console.log('HomePage component is being executed.');
   return (
+      <>
       <div className="row">
         <div className="col-9">
           <h1> Home Page</h1>
@@ -14,6 +15,7 @@ function HomePage () {
           </div>
         </div>
       </div>
+      </>
 
 
   );

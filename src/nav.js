@@ -2,15 +2,19 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import React from 'react';
-import { logoutThunk } from "./movie-reviewer/services/auth-thunks"; 
-import { useNavigate } from 'react-router-dom'; 
+import { logoutThunk } from "./movie-reviewer/services/auth-thunks";
+import { useNavigate } from 'react-router-dom';
+
 
 function Nav() {
     const { currentUser } = useSelector((state) => state.user);
+    const user = useSelector((state) => state.user.currentUser);
     const dispatch = useDispatch();
-    const navigate = useNavigate(); // If you're using React Router
-    const id = currentUser ? currentUser.id : null;
-  
+    const navigate = useNavigate();
+    const userID = user?._id;
+
+
+
     return (
       <nav className="nav nav-tabs mb-2">
         <Link className="nav-link" to="/reviewer/home">
@@ -19,7 +23,7 @@ function Nav() {
         <Link className="nav-link" to="/reviewer/search">
           Search
         </Link>
-        
+
         {!currentUser ? (
           <>
             <Link className="nav-link" to="/reviewer/login">
@@ -31,9 +35,15 @@ function Nav() {
           </>
         ) : (
           <>
-            <Link className="nav-link" to={`/reviewer/profile/${id}`}>
+            <button
+                className="btn nav-link"
+                onClick={() => {
+                  console.log("id: ", userID);
+                  navigate(`/reviewer/profile/${userID}/home-page`);
+                }}
+            >
               Profile
-            </Link>
+            </button>
             {/* <div>
               Hi, {currentUser.username}
             </div> */}
@@ -41,7 +51,7 @@ function Nav() {
               className="btn nav-link"
               onClick={() => {
                 dispatch(logoutThunk());
-                navigate('/reviewer/home'); 
+                navigate('/reviewer/home');
               }}
             >
               Logout
@@ -51,5 +61,5 @@ function Nav() {
       </nav>
     );
   }
-  
+
 export default Nav;

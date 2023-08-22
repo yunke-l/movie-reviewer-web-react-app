@@ -24,6 +24,8 @@ import UserProfile from "../profile/user-profile";
   }
 
 function MovieReviewer() {
+
+
  return (
   <Provider store={store}>
     {/* <div> */}
@@ -33,7 +35,7 @@ function MovieReviewer() {
           <Route path="/home" element={<HomeScreen/>}/>
           <Route path="/login"    element={<LoginScreen />} />
           <Route path="/register"    element={<RegisterScreen />} />
-          <Route path="/profile/:uid/*" element={<UserProfile />} />
+          <Route path="/profile/:id/*" element={<UserProfile />} />
 
           <Route path="/search" element={<SearchBar />} />
           <Route path="/search/:searchTerm" element={<SearchRouteWrapper />} />
