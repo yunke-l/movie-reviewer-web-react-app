@@ -5,17 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6c16417-58b3-42ef-bbc3-b53af2bcfeac" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/movie-reviewer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/movie-reviewer/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/movie-reviewer/home-screen/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/movie-reviewer/home-screen/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/movie-reviewer/services/posts-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/movie-reviewer/services/posts-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/movie-reviewer/services/posts-thunks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/movie-reviewer/services/posts-thunks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/profile/header/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/profile/header/header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/profile/navigation/navigation-bar-horizontal-normal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/profile/navigation/navigation-bar-horizontal-normal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/profile/navigation/navigation-bar-horizontal-verified.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/profile/navigation/navigation-bar-horizontal-verified.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/profile/profile-pages/home-page/home-page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/profile/profile-pages/home-page/home-page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/profile/profile-pages/post/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/profile/profile-pages/post/post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/profile/profile-screen-normal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/profile/profile-screen-normal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/profile/profile-screen-verified.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/profile/profile-screen-verified.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/profile/user-profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/profile/user-profile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +75,7 @@
       <updated>1692314270672</updated>
       <workItem from="1692314276826" duration="31066000" />
       <workItem from="1692651422975" duration="10744000" />
-      <workItem from="1692673435083" duration="9000000" />
+      <workItem from="1692673435083" duration="12605000" />
     </task>
     <servers />
   </component>

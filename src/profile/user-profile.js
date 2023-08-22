@@ -16,12 +16,17 @@ function UserProfile() {
   const userID = currentUser?._id;
 
   const dispatch = useDispatch()
+  // useEffect(() => {
+  //   console.log('Fetching user data for id:', userID)
+  //   dispatch(findUserByIdThunk(userID))
+  // }, [])
+
   useEffect(() => {
-    console.log('Fetching user data for id:', userID)
-    dispatch(findUserByIdThunk(userID))
-  }, [])
-
-
+    if (userID) {
+      console.log('Fetching user data for id:', userID);
+      dispatch(findUserByIdThunk(userID));
+    }
+  }, [dispatch, userID]);
 
 
   let ProfileComponent;

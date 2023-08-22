@@ -12,12 +12,14 @@ import {useDispatch, useSelector} from "react-redux";
 
 function ProfileNormal () {
 
-  const { currentUser } = useSelector((state) => state.user);
+
   const user = useSelector((state) => state.user.currentUser);
   const userID = user?._id;
   const userImage = user?.avatar;
   const userName = user?.username;
   const userLevel = user?.level;
+
+  console.log("userID in profilenormal: ", userID)
 
   return (
       <div className="profile-page">
@@ -31,11 +33,11 @@ function ProfileNormal () {
         <HorizontalNavbarNormal/>
 
         <Routes>
-          <Route path={`/reviewer/profile/${userID}`} element={<Navigate to={`/reviewer/profile/${userID}/home-page`} />} />
-          <Route path={`/reviewer/profile/${userID}/home-page`} element={<HomePage />} />
-          <Route path={`/reviewer/profile/${userID}/post`} element={<PostPage />} />
-          <Route path={`/reviewer/profile/${userID}/favorite`} element={<FavoritePage />} />
-          <Route path={`/reviewer/profile/${userID}/setting`} element={<SettingPageNormal />} />
+          {/*<Route path={`/reviewer/profile/${userID}`} element={<Navigate to={`/reviewer/profile/${userID}/home-page`} />} />*/}
+          <Route path={`/home-page`} element={<HomePage />} />
+          <Route path={`/post`} element={<PostPage />} />
+          <Route path={`/favorite`} element={<FavoritePage />} />
+          <Route path={`/setting`} element={<SettingPageNormal />} />
         </Routes>
       </div>
   );

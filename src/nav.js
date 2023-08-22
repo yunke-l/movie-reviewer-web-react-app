@@ -40,6 +40,7 @@ function Nav() {
                 onClick={() => {
                   console.log("id: ", userID);
                   navigate(`/reviewer/profile/${userID}/home-page`);
+
                 }}
             >
               Profile

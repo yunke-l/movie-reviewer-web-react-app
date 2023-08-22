@@ -12,19 +12,19 @@ const HorizontalNavbarNormal = () => {
   return (
       <div className="horizontal-navbar">
         <div className="nav-items">
-          <NavLink to={`/reviewer/profile/${userID}/home-page`} activeclassname="active" end>
-            Home Page
-          </NavLink>
-          <NavLink to={`/reviewer/profile/${userID}/post`} activeclassname="active">
-            Post
-          </NavLink>
-          <NavLink to={`/reviewer/profile/${userID}/favorite`} activeclassname="active">
-            Favorite
-          </NavLink>
-          <NavLink to={`/reviewer/profile/${userID}/setting`} activeclassname="active">
-            Setting
-          </NavLink>
-        </div>
+        <NavLink to={`/reviewer/profile/${userID}/home-page`} activeclassname="active" end>
+          Home Page
+        </NavLink>
+        <NavLink to={`/reviewer/profile/${userID}/post`} activeclassname="active">
+          Post
+        </NavLink>
+        <NavLink to={`/reviewer/profile/${userID}/favorite`} activeclassname="active">
+          Favorite
+        </NavLink>
+        <NavLink to={`/reviewer/profile/${userID}/setting`} activeclassname="active">
+          Setting
+        </NavLink>
+      </div>
 
         {/*<div className="search-bar">*/}
         {/*  <input type="text" placeholder="Search..." />*/}

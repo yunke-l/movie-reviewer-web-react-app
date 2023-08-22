@@ -26,3 +26,9 @@ export const updatePost = async (post) => {
       .put(`${post_API}/${post._id}`, post);
     return post;
 }
+
+export const findPostByUsername = async (username) => {
+    const response = await axios.get(`${post_API}/${username}`)
+    const posts = response.data;
+    return posts;
+}

@@ -5,7 +5,6 @@ import HomePosts from "./home-posts";
 import "./styles.css"
 import { Link } from "react-router-dom";
 import {logoutThunk} from "../services/auth-thunks";
-
 const HomeScreen = () => {
   const { currentUser } = useSelector((state) => state.user);
   const id = currentUser ? currentUser.id : null;
