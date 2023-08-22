@@ -18,6 +18,11 @@ const PostReview = ({ imdbid, moviePoster, movieTitle, onPostReview })  => {
     
     const handlePostClick = () => {
 
+        if (!currentUser || !currentUser._id) {
+            // Alert if the user is not logged in
+            alert("Please login to post your reviews.");
+            return;
+          }
         // Perform content validation
         if (!reviewContent) {
             alert("Please enter your reviews.");
