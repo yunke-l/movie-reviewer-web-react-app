@@ -2,10 +2,7 @@ import './App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { HashRouter, Navigate } from 'react-router-dom';
 import {Routes, Route} from "react-router";
-import MovieReviewer from './movie-tracker';
-
-
-
+import MovieReviewer from './movie-reviewer';
 
 
 function App() {

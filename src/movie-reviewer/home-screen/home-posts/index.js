@@ -28,7 +28,6 @@ const HomePosts = () => {
           <div>
             <PostItem post={post} />
             <PostStats post={post} />
-            {/* <PostMovie post={post} /> */}
           </div>
         </li>
       ))}

@@ -5,7 +5,7 @@ import LoginScreen from "./register-login/login-screen";
 
 import SearchBar from './search/searchbar';
 import DetailsScreen from './details/index';
-// import Nav from "../nav";
+import Nav from "../nav";
 import {Routes, Route} from "react-router";
 import RegisterScreen from "./register-login/register-screen";
 import authReducers from "./reducers/auth-reducers";
@@ -27,7 +27,7 @@ function MovieReviewer() {
  return (
   <Provider store={store}>
     {/* <div> */}
-      {/* <Nav/> */}
+      <Nav/>
       {/* <BrowserRouter> */}
         <Routes>
           <Route path="/home" element={<HomeScreen/>}/>

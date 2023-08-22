@@ -24,7 +24,7 @@ const SearchBar = (props) => {
     };
 
     return (
-        <div className="search-bar">
+        <div>
             <ul className="list-group">
                 <li className="list-group-item">
                     <input

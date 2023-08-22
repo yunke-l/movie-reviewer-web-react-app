@@ -17,8 +17,8 @@ const AnonymousBanner = () => {
             <div className="banner-content">
               <h2>Welcome!</h2>
               <p>Unlock more features by creating an account or logging in.</p>
-              <div className="button-container">
-                <div className="button-container">
+              <div className="profile-anonymous-button-container">
+                <div className="profile-anonymous-button-container">
                   <button className="register-button">
                     <Link to="/reviewer/register">Register</Link>
                   </button>

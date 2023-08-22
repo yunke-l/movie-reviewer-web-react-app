@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './setting.css';
 import { Form, Button } from 'react-bootstrap';
 
+
 const SettingPageVerified = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');

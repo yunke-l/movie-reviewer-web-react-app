@@ -6,7 +6,7 @@ import ProfileVerified from './profile-screen-verified';
 import ProfileAnonymous from "./profile-screen-anonymous";
 import NotFoundComponent from './profile-screen-notfound';
 import {useSelector} from "react-redux";
-import {profileThunk} from "../movie-tracker/services/auth-thunks";
+import {profileThunk} from "../movie-reviewer/services/auth-thunks";
 
 const NODE_SERVER_URL = "http://localhost:4000";
 
