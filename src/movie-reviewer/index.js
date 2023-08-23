@@ -15,9 +15,11 @@ import { BrowserRouter, useParams } from 'react-router-dom';
 import UserProfile from "../profile/view-own-profile";
 import ViewOwnProfile from '../profile/view-own-profile';
 import ViewOtherProfiles from '../profile/profile-pages/view-other-profiles';
+import userDetailReducers from './reducers/user-detail-reducers';
 
   const store = configureStore(
-    {reducer: {posts: postsReducers,user:authReducers, omdb: omdbReducer,} 
+    {reducer: {posts: postsReducers,user:authReducers, omdb: omdbReducer, 
+      userDetails: userDetailReducers,} 
   });
 
   function SearchRouteWrapper() {

@@ -32,3 +32,9 @@ export const findPostByUsername = async (username) => {
     const posts = response.data;
     return posts;
 }
+
+export const findPostByUserId = async (userId) => {
+    const response = await axios.get(`${post_API}?userId=${userId}`)
+    const posts = response.data;
+    return posts;
+}

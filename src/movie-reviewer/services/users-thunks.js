@@ -1,5 +1,6 @@
 import { fetchUserByIdApi } from "./users-service";
 
+
 export const fetchUserById = (userId) => async (dispatch) => {
     try {
         const user = await fetchUserByIdApi(userId);

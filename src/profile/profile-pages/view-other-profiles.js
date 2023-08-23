@@ -1,51 +1,59 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-//import Header from './Header';
-//import HorizontalNavbarNormal from './HorizontalNavbarNormal';
 import { useSelector, useDispatch } from 'react-redux';
- // Import the action to follow a user
 import { findUserByIdThunk } from '../../movie-reviewer/services/user-thunks';
-
+import PostItem from '../../movie-reviewer/home-screen/home-posts/home-posts-item';
+// import { followUser } from './path-to-followUser-action'; // Import the action to follow a user
+// import { fetchUserByIdThunk } from './path-to-fetchUserByIdThunk'; // Import the action to fetch user data by ID
+// import PostItem from './PostItem'; // Your PostItem component
+import { findPostByUserId } from '../../movie-reviewer/services/posts-service';
+import { findPostByUserIdThunk } from '../../movie-reviewer/services/posts-thunks';
+import { fetchUserByIdThunk } from '../../movie-reviewer/services/user-thunks';
 
 function ViewOtherProfiles() {
-  // const dispatch = useDispatch();
-  // const currentUser = useSelector((state) => state.user.currentUser);
-  // const { userId } = useParams(); // Get the userId from the URL parameter
-  // const [user, setUser] = useState(null);
+  const dispatch = useDispatch();
+  const { id } = useParams(); // Get the id from the URL parameter
+  const userPosts = useSelector((state) => state.posts.userPosts);
+  const [user, setUser] = useState(null);
+
+  // console.log("the id that are viewing is:",id); //id is successfully got.
+
+  useEffect(() => {
+    // Fetch the user's posts based on id
+    dispatch(findPostByUserIdThunk(id));
+  }, [dispatch, id ]);
+
+  const userDetails = useSelector((state) => state.userDetails.userById);
+  
+  useEffect(() => {
+    // Fetch the user's posts based on id
+    dispatch(fetchUserByIdThunk(id));
+  }, [dispatch, id ]);
+
 
   // useEffect(() => {
-  //   if (userId) {
-  //     console.log('Fetching user data for id:', userId);
-  //     dispatch(findUserByIdThunk(userID));
-  //   }
-  // }, [dispatch, userId]);
+  //     dispatch(fetchUserByIdThunk(id))
+  //   }, [])
 
+  // const user = posts.filter(post => post.username === username);
 
-  // const handleFollowClick = () => {
-  //   // Dispatch the followUser action with the user's _id as payload
-  //   dispatch(followUser(user._id));
-  //   // You can also update the local state or user data to reflect the change
-  // };
-
-  // if (!user) {
-  //   return <div>Loading...</div>; // You can show a loading state while fetching data
-  // }
-
+  if (!userDetails) {
+    return <div>Loading...</div>;
+  }
+    // Print out some user data for testing
+    console.log('User Username:', userDetails.username);
+    console.log('User First Name:', userDetails.firstName);
   return (
-    // <div className="profile-page">
-    //   <Header
-    //     backgroundImage="/images/headers/header-background4.jpeg"
-    //     userImage={user.avatar}
-    //     userName={user.username}
-    //     userLevel={user.level}
-    //   />
-    //   <HorizontalNavbarNormal />
-    //   {/* Render the user's posts and other profile details here */}
-    //   {userId !== currentUser._id && (
-    //     <button onClick={handleFollowClick}>Follow</button>
-    //   )}
-    // </div>
-    <h1> hi you are viewing other user's profile</h1>
+    <div>
+      <h1> Hi you are viewing other's profile</h1>
+      <h2>{userDetails.username}'s Profile</h2>
+      {userPosts.map((post) => (
+        <PostItem key={post.id} post={post} />
+      ))}
+
+      {/* Render the follow button
+      <button onClick={handleFollowClick}>Follow</button> */}
+    </div>
   );
 }
 

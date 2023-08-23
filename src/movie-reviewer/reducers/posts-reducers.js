@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {updatePostThunk, createPostThunk, deletePostThunk, findPostsThunk} from "../services/posts-thunks";
+import {updatePostThunk, createPostThunk, deletePostThunk, findPostsThunk, findPostByUserIdThunk} from "../services/posts-thunks";
 
 
    const initialState = {
       posts: [],
+      userPosts: [], // to store the user's post when we find post by users
       loading: false
    }
    
@@ -25,6 +26,19 @@ const postsSlice = createSlice({
          state.loading = false
          state.error = action.error
    },
+
+   [findPostByUserIdThunk.pending]: (state) => {
+      state.loading = true;
+      state.userPosts = []
+    },
+    [findPostByUserIdThunk.fulfilled]: (state, { payload }) => {
+      state.loading = false;
+      state.userPosts = payload; // Store the fetched posts here
+    },
+    [findPostByUserIdThunk.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.error.message;
+    },
    
    [deletePostThunk.fulfilled] :
    (state, { payload }) => {
