@@ -7,11 +7,10 @@ import PostPage from "./profile-pages/post/post";
 import FavoritePage from "./profile-pages/favorite/favorite";
 import SettingPageNormal from "./profile-pages/setting/setting-normal";
 import {useDispatch, useSelector} from "react-redux";
-
+import { useLocation } from 'react-router-dom';
 
 
 function ProfileNormal () {
-
 
   const user = useSelector((state) => state.user.currentUser);
   const userID = user?._id;
@@ -20,6 +19,10 @@ function ProfileNormal () {
   const userLevel = user?.level;
 
   console.log("userID in profilenormal: ", userID)
+
+    // Get the current location object using useLocation
+    const location = useLocation();
+    console.log('Current path:', location.pathname);
 
   return (
       <div className="profile-page">
@@ -31,14 +34,17 @@ function ProfileNormal () {
             userLevel={userLevel}
         />
         <HorizontalNavbarNormal/>
-
-        <Routes>
-          {/*<Route path={`/reviewer/profile/${userID}`} element={<Navigate to={`/reviewer/profile/${userID}/home-page`} />} />*/}
+        <h1> we are at profile normal</h1>
+        {/* <Routes>
           <Route path={`/home-page`} element={<HomePage />} />
           <Route path={`/post`} element={<PostPage />} />
           <Route path={`/favorite`} element={<FavoritePage />} />
           <Route path={`/setting`} element={<SettingPageNormal />} />
-        </Routes>
+        </Routes> */}
+        <HomePage />
+        <PostPage />
+        <FavoritePage />
+        <SettingPageNormal />
       </div>
   );
 };

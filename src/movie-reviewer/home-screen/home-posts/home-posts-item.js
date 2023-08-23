@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { utcToZonedTime, format } from 'date-fns-tz';
+import { Link } from "react-router-dom";
 
 
 import {deletePostThunk} from "../../services/posts-thunks";
@@ -63,11 +64,13 @@ const PostItem = (
         </div>
         <div className="post-content-container">
           <div className="post-header">
-            <img
-              className="user-avatar"
-              src={post.userAvatar}
-              alt={`${post.username}'s Avatar`}
-            />
+            <Link to={`/reviewer/profile/${post.userId}`}>
+              <img
+                className="user-avatar"
+                src={post.userAvatar}
+                alt={`${post.username}'s Avatar`}
+              />
+            </Link>
             <div className="post-details">
               <div className="post-title">{post.title}</div>
               <div className="post-subtitle">

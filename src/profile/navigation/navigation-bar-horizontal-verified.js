@@ -12,19 +12,19 @@ const HorizontalNavbarVerified = () => {
   return (
       <div className="horizontal-navbar">
         <div className="nav-items">
-          <NavLink to={`/reviewer/profile/${userID}/home-page`} activeClassName="active" end>
+          <NavLink to={`/reviewer/profile/home-page`} activeClassName="active" end>
             Home Page
           </NavLink>
-          <NavLink to={`/reviewer/profile/${userID}/movie`} activeClassName="active">
+          <NavLink to={`/reviewer/profile/movie`} activeClassName="active">
             Movie
           </NavLink>
-          <NavLink to={`/reviewer/profile/${userID}/post`} activeClassName="active">
+          <NavLink to={`/reviewer/profile/post`} activeClassName="active">
             Post
           </NavLink>
-          <NavLink to={`/reviewer/profile/${userID}/favorite`} activeClassName="active">
+          <NavLink to={`/reviewer/profile/favorite`} activeClassName="active">
             Favorite
           </NavLink>
-          <NavLink to={`/reviewer/profile/${userID}/setting`} activeClassName="active">
+          <NavLink to={`/reviewer/profile/setting`} activeClassName="active">
             Setting
           </NavLink>
         </div>

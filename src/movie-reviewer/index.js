@@ -12,7 +12,9 @@ import authReducers from "./reducers/auth-reducers";
 import postsReducers from './reducers/posts-reducers';
 import omdbReducer from './search/search-reducer';
 import { BrowserRouter, useParams } from 'react-router-dom';
-import UserProfile from "../profile/user-profile";
+import UserProfile from "../profile/view-own-profile";
+import ViewOwnProfile from '../profile/view-own-profile';
+import ViewOtherProfiles from '../profile/profile-pages/view-other-profiles';
 
   const store = configureStore(
     {reducer: {posts: postsReducers,user:authReducers, omdb: omdbReducer,} 
@@ -35,7 +37,11 @@ function MovieReviewer() {
           <Route path="/home" element={<HomeScreen/>}/>
           <Route path="/login"    element={<LoginScreen />} />
           <Route path="/register"    element={<RegisterScreen />} />
-          <Route path="/profile/:id/*" element={<UserProfile />} />
+          {/* <Route path="/profile/:id/*" element={<ViewOwnProfile />} /> */}
+
+          {/* <Route path="/profile/:id/*" element={<UserProfile />} /> */}
+          <Route path="/profile/:id" element={<ViewOtherProfiles />} />
+          <Route path="/profile" element={<ViewOwnProfile />} />
 
           <Route path="/search" element={<SearchBar />} />
           <Route path="/search/:searchTerm" element={<SearchRouteWrapper />} />

@@ -16,12 +16,6 @@ const LoginPosts = ({ username }) => {
     const filteredPosts = posts.filter(post => post.username === username);
 
     return (
-    //   <div className="post-content-container">
-    //     {filteredPosts.map((post) => (
-    //       <PostItem key={post._id} post={post} />
-    //     //   <PostItem post={post} />
-    //     ))}
-    //   </div>
     <div>
     <h3>Your Recent Posts:</h3>
     {filteredPosts.map((post) => (

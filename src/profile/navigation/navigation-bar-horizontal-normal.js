@@ -12,16 +12,16 @@ const HorizontalNavbarNormal = () => {
   return (
       <div className="horizontal-navbar">
         <div className="nav-items">
-        <NavLink to={`/reviewer/profile/${userID}/home-page`} activeclassname="active" end>
+        <NavLink to={`/reviewer/profile/home-page`} activeclassname="active" end>
           Home Page
         </NavLink>
-        <NavLink to={`/reviewer/profile/${userID}/post`} activeclassname="active">
+        <NavLink to={`/reviewer/profile/post`} activeclassname="active">
           Post
         </NavLink>
-        <NavLink to={`/reviewer/profile/${userID}/favorite`} activeclassname="active">
+        <NavLink to={`/reviewer/profile/favorite`} activeclassname="active">
           Favorite
         </NavLink>
-        <NavLink to={`/reviewer/profile/${userID}/setting`} activeclassname="active">
+        <NavLink to={`/reviewer/profile/setting`} activeclassname="active">
           Setting
         </NavLink>
       </div>

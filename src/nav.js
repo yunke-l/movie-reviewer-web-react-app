@@ -37,8 +37,8 @@ function Nav() {
                 className="btn nav-link"
                 onClick={() => {
                   console.log("id: ", userID);
-                  navigate(`/reviewer/profile/${userID}/home-page`);
-
+                  // navigate(`/reviewer/profile/${userID}/home-page`);
+                  navigate(`/reviewer/profile`);
                 }}
             >
               Profile

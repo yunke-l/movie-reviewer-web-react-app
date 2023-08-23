@@ -73,7 +73,6 @@ const PostStats = ({ post}) => {
         <span className="ms-1">{post.dislikes}</span>
       </div>
 
-
       <div className="col-3">
         <FiShare className="ms-1"/>
       </div>

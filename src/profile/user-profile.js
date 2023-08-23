@@ -1,55 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, Outlet } from 'react-router-dom';
-import axios from 'axios';
-import ProfileNormal from './profile-screen-normal';
-import ProfileVerified from './profile-screen-verified';
-import ProfileAnonymous from "./profile-screen-anonymous";
-import NotFoundComponent from './profile-screen-notfound';
-import {useDispatch, useSelector} from "react-redux";
-import {profileThunk} from "../movie-reviewer/services/auth-thunks";
-import {findUserByIdThunk} from "../movie-reviewer/services/user-thunks";
-
-const NODE_SERVER_URL = "http://localhost:4000";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import ViewOwnProfile from './view-own-profile';
+import ViewOtherProfiles from './profile-pages/view-other-profiles';
+import { useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 function UserProfile() {
-  const currentUser = useSelector((state) => state.user.currentUser);
-  const userID = currentUser?._id;
+    const dispatch = useDispatch();
+    const currentUser = useSelector((state) => state.user.currentUser);
+    const location = useLocation(); // Use useLocation to get the current location
+  
+    const hashParams = new URLSearchParams(location.hash.slice(1)); // Remove the "#" and create URLSearchParams
+  
+    const id = hashParams.get('/reviewer/profile/:id'); // Get the value of the parameter
+    console.log("I am hereeee!");
+console.log("hashParams is :", hashParams);
+  console.log("the id got by useParams:", id);
 
-  const dispatch = useDispatch()
-  // useEffect(() => {
-  //   console.log('Fetching user data for id:', userID)
-  //   dispatch(findUserByIdThunk(userID))
-  // }, [])
-
-  useEffect(() => {
-    if (userID) {
-      console.log('Fetching user data for id:', userID);
-      dispatch(findUserByIdThunk(userID));
-    }
-  }, [dispatch, userID]);
-
-
-  let ProfileComponent;
-
-  switch (currentUser?.role) {
-    case 'regular':
-      ProfileComponent = <ProfileNormal />;
-      break;
-    case 'verified':
-      ProfileComponent = <ProfileVerified />;
-      break;
-    default:
-      ProfileComponent = <ProfileAnonymous />;
-      break;
+  if (id !== currentUser?._id) {
+    return <ViewOtherProfiles />;
   }
 
-
-  return (
-      <div>
-        {ProfileComponent}
-      </div>
-  );
+  return <UserProfile />;
 }
 
 export default UserProfile;
-
