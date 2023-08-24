@@ -13,8 +13,8 @@ function Nav() {
     const navigate = useNavigate();
     const userID = user?._id;
 
-    return (
-      <nav className="nav nav-tabs mb-2">
+  return (
+      <nav className="nav nav-tabs bg-light">
         <Link className="nav-link" to="/reviewer/home">
           Home
         </Link>
@@ -23,42 +23,40 @@ function Nav() {
         </Link>
 
         {!currentUser ? (
-          <>
-            <Link className="nav-link" to="/reviewer/login">
-              Login
-            </Link>
-            <Link className="nav-link" to="/reviewer/register">
-              Register
-            </Link>
-          </>
+            <>
+              <Link className="nav-link" to="/reviewer/login">
+                Login
+              </Link>
+              <Link className="nav-link" to="/reviewer/register">
+                Register
+              </Link>
+            </>
         ) : (
-          <>
-            <button
-                className="btn nav-link"
-                onClick={() => {
-                  console.log("id: ", userID);
-                  // navigate(`/reviewer/profile/${userID}/home-page`);
-                  navigate(`/reviewer/profile`);
-                }}
-            >
-              Profile
-            </button>
-            {/* <div>
-              Hi, {currentUser.username}
-            </div> */}
-            <button
-              className="btn nav-link"
-              onClick={() => {
-                dispatch(logoutThunk());
-                navigate('/reviewer/home');
-              }}
-            >
-              Logout
-            </button>
-          </>
+            <>
+              <button
+                  className="btn nav-link"
+                  onClick={() => {
+                    navigate(`/reviewer/profile`);
+                  }}
+              >
+                Profile
+              </button>
+              {/* <div>
+            Hi, {currentUser.username}
+          </div> */}
+              <button
+                  className="btn nav-link"
+                  onClick={() => {
+                    dispatch(logoutThunk());
+                    navigate('/reviewer/home');
+                  }}
+              >
+                Logout
+              </button>
+            </>
         )}
       </nav>
-    );
-  }
+  );
+}
 
 export default Nav;

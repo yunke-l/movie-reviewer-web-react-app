@@ -14,26 +14,6 @@ const PostItem = (
   ) => {
   const dispatch = useDispatch();
 
-//   const user = useSelector((state) => state.user); // Assuming your user data is in the Redux state
-
-//   const [userDetails, setUserDetails] = useState({
-//       avatar: "",
-//       name: "",
-//   });
-
-//   useEffect(() => {
-//     // Fetch the user details based on userId
-//     dispatch(fetchUserById(post.userId))
-//         .then((user) => {
-//             setUserDetails({
-//                 avatar: user.avatar,
-//                 name: user.name,
-//             });
-//         })
-//         .catch((error) => {
-//             console.error("Error fetching user details:", error);
-//         });
-// }, [dispatch, post.userId]);
 
 
   const deletepostHandler = (id) => {
@@ -53,40 +33,34 @@ const PostItem = (
     const formattedTime = format(vancouverCreatedAt, "MMM dd, yyyy HH:mm:ss");
 
     return (
-        <div className="post-item">
-        <div className="movie-info">
-          <img
-            className="movie-photo"
-            src={post.moviePoster}
-            alt={`${post.movieTitle} Movie Poster`}
-          />
-          <div className="home-movie-title">{post.movieTitle}</div>
-        </div>
-        <div className="post-content-container">
-          <div className="post-header">
-            <Link to={`/reviewer/profile/${post.userId}`}>
-              <img
-                className="user-avatar"
-                src={post.userAvatar}
-                alt={`${post.username}'s Avatar`}
-              />
-            </Link>
-            <div className="post-details">
-              <div className="post-title">{post.title}</div>
-              <div className="post-subtitle">
-                {post.username} - {formattedTime}
+        <div className="post-item card mb-4">
+          <div className="movie-info">
+            <img
+                className="movie-photo card-img-top"
+                src={post.moviePoster}
+                alt={`${post.movieTitle} Movie Poster`}
+            />
+            <div className="home-movie-title card-title">{post.movieTitle}</div>
+          </div>
+          <div className="post-content-container card-body">
+            <div className="post-header d-flex align-items-center justify-content-between">
+              <Link to={`/reviewer/profile/${post.userId}`}>
+                <img
+                    className="user-avatar rounded-circle"
+                    src={post.userAvatar}
+                    alt={`${post.username}'s Avatar`}
+                />
+              </Link>
+              <div className="post-details">
+                <div className="post-title h5 mb-0">{post.title}</div>
+                <div className="post-subtitle text-muted">
+                  {post.username} - {formattedTime}
+                </div>
               </div>
             </div>
+            <div className="post-content mt-3">{post.content}</div>
           </div>
-          <div className="post-content">{post.content}</div>
-          {/* <button
-            className="delete-button"
-            onClick={() => deletepostHandler(post.id)}
-          >
-            Delete
-          </button> */}
         </div>
-      </div>
 
     );
 };

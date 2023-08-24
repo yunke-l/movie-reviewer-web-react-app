@@ -1,0 +1,15 @@
+.img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.extended-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: top; /* Adjust this if you want a different vertical alignment */
+}
+
+.post-item {
+  height: 600px; /* Set your desired fixed height */
+}

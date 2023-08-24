@@ -1,5 +1,10 @@
 .home-posts-container {
-    width: 90%; /* Adjust the width as needed, 3/5 = 60% */
+    width: 100%; /* Adjust the width as needed, 3/5 = 60% */
     margin: 0 auto; /* Center the container horizontally */
   }
-  
+
+.welcome-word {
+  color: #333;
+  padding: 10px;
+}
+
