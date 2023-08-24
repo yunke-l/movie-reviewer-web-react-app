@@ -13,9 +13,9 @@ const MovieDetails = ({ details }) => {
                         <div className="movie-title">{details.Title}</div>
                         <div className="movie-rating">
                             <span className="detail-item">IMDB Rating<Star className="star-icon" /> :  {details.imdbRating}</span>
-                            <span className="detail-item">   IMDB Votes <ThumbUp className="like-icon" /> : {details.Votes}</span>
+                            <span className="detail-item">   IMDB Votes <ThumbUp className="like-icon" /> : {details.imdbVotes}</span>
                             <span className="detail-item"> Runtime <Theaters className="runtime-icon" /> : {details.Runtime}</span>
-                            <span  className="detail-item">  Year <Event className="year-icon" /> : {details.Year}</span>
+                            <span className="detail-item">  Year <Event className="year-icon" /> : {details.Year}</span>
                             {/* <span>IMDB Rating :  {details.imdbRating}</span>
                             <span>   IMDB Votes  : {details.Votes}</span>
                             <span> Runtime  : {details.Runtime}</span>
