@@ -41,9 +41,9 @@ const DetailsScreen = () => {
 
             {!canPostReview && (
                 <div className="alert alert-info mt-4">
-                    <p>
+                    <h2>
                         Please <NavLink to="/reviewer/login">log in</NavLink> to post a review.
-                    </p>
+                    </h2>
                 </div>
             )}
 
