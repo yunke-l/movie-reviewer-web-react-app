@@ -45,7 +45,7 @@ const HomePosts = () => {
               {currentUser ? (
                   <div className="row">
                     <div className="col-12">
-                      <h4 className="mb-3 text-primary">Your Recent Posts:</h4>
+                      <h4 className="mb-4 text-primary">Your Recent Posts:</h4>
                     </div>
                     <div className="col-12">
                       <LoginPosts username={currentUser.username} />

@@ -14,27 +14,27 @@ function Nav() {
     const userID = user?._id;
 
   return (
-      <nav className="nav nav-tabs bg-light">
-        <Link className="nav-link" to="/reviewer/home">
+      <nav className="nav nav-tabs bg-dark">
+        <Link className="nav-link text-light" to="/reviewer/home">
           Home
         </Link>
-        <Link className="nav-link" to="/reviewer/search">
+        <Link className="nav-link text-light" to="/reviewer/search">
           Search
         </Link>
 
         {!currentUser ? (
             <>
-              <Link className="nav-link" to="/reviewer/login">
+              <Link className="nav-link text-light" to="/reviewer/login">
                 Login
               </Link>
-              <Link className="nav-link" to="/reviewer/register">
+              <Link className="nav-link text-light" to="/reviewer/register">
                 Register
               </Link>
             </>
         ) : (
             <>
               <button
-                  className="btn nav-link"
+                  className="btn nav-link text-light"
                   onClick={() => {
                     navigate(`/reviewer/profile`);
                   }}
@@ -42,10 +42,10 @@ function Nav() {
                 Profile
               </button>
               {/* <div>
-            Hi, {currentUser.username}
-          </div> */}
+        Hi, {currentUser.username}
+      </div> */}
               <button
-                  className="btn nav-link"
+                  className="btn nav-link text-light"
                   onClick={() => {
                     dispatch(logoutThunk());
                     navigate('/reviewer/home');
@@ -56,6 +56,7 @@ function Nav() {
             </>
         )}
       </nav>
+
   );
 }
 
