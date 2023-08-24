@@ -21,12 +21,6 @@ function ProfileNormal () {
   const userName = user?.username;
   const userLevel = user?.level;
 
-  console.log("userID in profilenormal: ", userID)
-
-    // Get the current location object using useLocation
-    // const location = useLocation();
-    // console.log('Current path:', location.pathname);
-
   return (
       <div className="profile-page">
         <Header
@@ -36,15 +30,20 @@ function ProfileNormal () {
             // initialUserSignature="Good good study! Day day up!"
             userLevel={userLevel}
         />
-        {/* <HorizontalNavbarNormal/> */}
-        {/* <h1> we are at profile normal</h1> */}
 
+        {/* <div>
+          <HomePage />
+        </div> */}
+      {/* {!user && (
+         <h2>Please login to view your profile.</h2>
+      )} */}
+      {user && (
         <div>
           <HomePage />
         </div>
+      )}
 
-        {/* <PostPage /> */}
-        {/* <FavoritePage /> */}
+
         {/* <SettingPageNormal /> */}
 
       </div>

@@ -43,26 +43,6 @@ function SettingsScreen() {
     }
 
   return (
-    // <div>
-    // <h1>Edit Profile</h1>
-    // <div>
-    //     <label>First Name:</label>
-    //     <input
-    //     type="text"
-    //     value={newFirstName}
-    //     onChange={(e) => setNewFirstName(e.target.value)}
-    //     />
-    // </div>
-    // <div>
-    //     <label>Last Name:</label>
-    //     <input
-    //     type="text"
-    //     value={newLastName}
-    //     onChange={(e) => setNewLastName(e.target.value)}
-    //     />
-    // </div>
-    // <button className='post-button' onClick={handleSaveChanges}>Save Changes</button>
-    // </div>
     <div className="setting-profile-edit bg-light">
         <h1 className="setting-edit-title">✏️ Edit Profile</h1>
         <div className="setting-input-group">

@@ -8,12 +8,14 @@ import "./view-other-profiles.css";
 import { updateUserThunk } from '../../movie-reviewer/services/auth-thunks';
 import LoginPostItem
   from "../../movie-reviewer/home-screen/home-posts/login-posts-items";
+import ShowMoviesRelated from './show-movies-related';
 function ViewOtherProfiles() {
   const dispatch = useDispatch();
   const { id } = useParams(); // Get the id from the URL parameter
   const userPosts = useSelector((state) => state.posts.userPosts);
   const userDetails = useSelector((state) => state.userDetails.userById);
   const currentUser = useSelector((state) => state.user.currentUser);
+  const userRole = userDetails?.role; 
 
   // const [userDetailsLocal, setUserDetailsLocal] = useState(null); 
 
@@ -27,17 +29,6 @@ function ViewOtherProfiles() {
     dispatch(fetchUserByIdThunk(id));
   }, [dispatch, id ]);
 
-    // Update local state when userDetails changes in the Redux store
-    // useEffect(() => {
-    //   if (userDetails) {
-    //     setUserDetailsLocal(userDetails);
-    //   }
-    // }, [userDetails]);
-  
-    // useEffect(() => {
-  //   // Fetch the user's posts based on id
-  //   dispatch(findPostByUserIdThunk(id));
-  // }, [dispatch, id, userDetails]); // Add userDetails as a dependency
   
 
   if (!userDetails) {
@@ -98,7 +89,6 @@ function ViewOtherProfiles() {
     
   return (
     <div className="view-other-profiles-profile-container">
-    
     <div className="view-other-profiles-user-info">
       <div className="view-other-profiles-avatar">
         {/* Placeholder for avatar */}
@@ -122,6 +112,7 @@ function ViewOtherProfiles() {
       </div>
     </div>
     
+    {userRole === 'verified' && <ShowMoviesRelated user={userDetails} />}
     <div className="view-other-profiles-user-posts">
       <h3>🎬 {userDetails.username}'s Posts</h3>
       {userPosts.map((post) => (

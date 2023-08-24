@@ -8,9 +8,9 @@ import FavoritePage from "./profile-pages/favorite/favorite";
 import SettingPageVerified from "./profile-pages/setting/setting-verified";
 import MoviesPage from "./profile-pages/movies-posted/movies-posted";
 import {useDispatch, useSelector} from "react-redux";
+import ShowMoviesRelated from './profile-pages/show-movies-related';
 
 function ProfileVerified () {
-  const { currentUser } = useSelector((state) => state.user);
   const user = useSelector((state) => state.user.currentUser);
   const userID = user?._id;
   const userImage = user?.avatar;
@@ -19,23 +19,21 @@ function ProfileVerified () {
 
   return (
       <div className="profile-page">
-        <Header
-            // backgroundImage="/images/headers/header-background4.jpeg"
-            backgroundColor="#000000"
-            userImage={userImage}
-            userName={userName}
-            // initialUserSignature="Good good study! Day day up!"
-            userLevel={userLevel}
-        />
-        <HorizontalNavbarVerified />
+      <Header
+          backgroundColor="#000000"
+          userImage={userImage}
+          userName={userName}
+          // initialUserSignature="Good good study! Day day up!"
+          userLevel={userLevel}
+      />
 
-        <Routes>
-          <Route path={`/home-page`} element={<HomePage />} />
-          <Route path={`/movie`} element={<MoviesPage />} />
-          <Route path={`/post`} element={<PostPage />} />
-          <Route path={`/favorite`} element={<FavoritePage />} />
-          <Route path={`/setting`} element={<SettingPageVerified />} />
-        </Routes>
+    <h1> you are at verified users' profile</h1>
+    <ShowMoviesRelated user={user}/>
+      {user && (
+        <div>
+          <HomePage />
+        </div>
+      )}
       </div>
   );
 };

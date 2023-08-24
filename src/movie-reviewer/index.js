@@ -38,7 +38,7 @@ function MovieReviewer() {
            <div className="position-relative img-container">
              <img
                  className="header-img img-fluid extended-img"
-                 src="/images/headers/header-background5.jpg"
+                 src="/images/headers/header-background11.png"
                  alt="Banner"
              />
            </div>
