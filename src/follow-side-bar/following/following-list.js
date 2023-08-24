@@ -16,9 +16,9 @@ const FollowingList = ({ followings }) => {
         <ul className={showMore ? 'expanded' : ''}>
           {displayedFollowings.map((following) => (
               <li key={following.id} className="following-item">
-                <img src={following.icon} alt={`${following.name}'s icon`} className="people-icon" />
+                <img src={following.avatar} alt={`${following.username}'s icon`} className="people-icon" />
                   <div className="people-info">
-                    <h3 className="people-name">{following.name}</h3>
+                    <h3 className="people-name">{following.username}</h3>
                     <div className="people-level">LV{following.level}</div>
                   </div>
               </li>

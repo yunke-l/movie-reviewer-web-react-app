@@ -12,13 +12,13 @@ const FollowersList = ({ followers }) => {
 
   return (
       <div className="followers-list">
-        <h2>Following ({followers.length})</h2>
+        <h2>Followers ({followers.length})</h2>
         <ul className={showMore ? 'expanded' : ''}>
           {displayedFollowers.map((follower) => (
               <li key={follower.id} className="following-item">
-                <img src={follower.icon} alt={`${follower.name}'s icon`} className="people-icon" />
+                <img src={follower.avatar} alt={`${follower.username}'s icon`} className="people-icon" />
                 <div className="people-info">
-                  <h3 className="people-name">{follower.name}</h3>
+                  <h3 className="people-name">{follower.username}</h3>
                   <div className="people-level">LV{follower.level}</div>
                 </div>
               </li>

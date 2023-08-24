@@ -1,7 +1,9 @@
-import React from 'react';
 import FollowingList from './following/following-list';
 import FollowersList from './follower/follower-list';
 import './follow-side-bar.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchUserByIdThunk } from '../movie-reviewer/services/user-thunks';
+import React, { useEffect, useState } from 'react';
 
 const FollowSideBar = () => {
   const followings = [
@@ -13,7 +15,6 @@ const FollowSideBar = () => {
     { id: 6, icon: '/images/followings/following6.jpeg', name: 'Frank', level: 2 },
     { id: 7, icon: '/images/followings/following7.jpeg', name: 'Grace', level: 6 },
     { id: 8, icon: '/images/followings/following8.jpeg', name: 'Helen', level: 8 },
-    // Add more followings as needed
   ];
 
   const followers = [
@@ -28,10 +29,51 @@ const FollowSideBar = () => {
     { id: 9, icon: '/images/followers/follower9.png', name: 'Ivy', level: 1 },
     { id: 10, icon: '/images/followers/follower10.jpeg', name: 'Judy', level: 10 },
   ];
+
+  const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.user.currentUser);
+  console.log("current user's followers:", currentUser.followers);
+
+  const [followerProfiles, setFollowerProfiles] = useState([]);
+  const [followingProfiles, setFollowingProfiles] = useState([]); // New state for following profiles
+
+    useEffect(() => {
+      // Fetch follower profiles based on follower IDs
+      const fetchFollowerProfiles = async () => {
+        const profiles = [];
+        for (const followerId of currentUser.followers) {
+          const response = await dispatch(fetchUserByIdThunk(followerId));
+          profiles.push(response.payload); // Assuming fetchUserByIdThunk returns user data
+        }
+        setFollowerProfiles(profiles);
+      };
+
+      // Fetch following profiles based on following IDs
+      const fetchFollowingProfiles = async () => {
+        const profiles = [];
+        for (const followingId of currentUser.following) {
+          const response = await dispatch(fetchUserByIdThunk(followingId));
+          profiles.push(response.payload); // Assuming fetchUserByIdThunk returns user data
+        }
+        setFollowingProfiles(profiles);
+      };
+  
+
+  if (currentUser.followers.length > 0) {
+    fetchFollowerProfiles();
+  }
+  if (currentUser.following.length > 0) {
+    fetchFollowingProfiles();
+  }
+}, [dispatch, currentUser.followers, currentUser.following]);
+console.log('currentUser:', currentUser);
+console.log('followerProfiles:', followerProfiles);
+
   return (
       <div className="follow-side-bar container-fluid">
-        <FollowingList followings={followings} />
-        <FollowersList followers={followers} />
+        <FollowingList followings={followingProfiles} />
+        {/* <FollowersList followers={followers} /> */}
+        <FollowersList followers={followerProfiles} />
       </div>
   );
 };
