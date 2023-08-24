@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {findPostsThunk} from "../../services/posts-thunks";
 import "./style.css";
+import {NavLink} from "react-router-dom";
 
 const HomePosts = () => {
   const {posts, loading} = useSelector(state => state.posts)
@@ -73,7 +74,11 @@ const HomePosts = () => {
               ) : (
                   <div className="row">
                     <div className="col-12 text-center">
-                      <h4>Please login to see your recent posts</h4>
+                      <div className="alert alert-info mt-4">
+                        <h3>
+                          Please <NavLink to="/reviewer/login">log in</NavLink> to post a review.
+                        </h3>
+                      </div>
                     </div>
                   </div>
               )}
