@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchUserByIdThunk } from '../movie-reviewer/services/user-thunks';
 import React, { useEffect, useState } from 'react';
 
+
 const FollowSideBar = () => {
   const followings = [
     { id: 1, icon: '/images/followings/following1.jpeg', name: 'Alice', level: 4 },
@@ -57,7 +58,7 @@ const FollowSideBar = () => {
         }
         setFollowingProfiles(profiles);
       };
-  
+
 
   if (currentUser.followers.length > 0) {
     fetchFollowerProfiles();
@@ -69,11 +70,13 @@ const FollowSideBar = () => {
 console.log('currentUser:', currentUser);
 console.log('followerProfiles:', followerProfiles);
 
+
   return (
       <div className="follow-side-bar container-fluid">
         <FollowingList followings={followingProfiles} />
         {/* <FollowersList followers={followers} /> */}
         <FollowersList followers={followerProfiles} />
+
       </div>
   );
 };
