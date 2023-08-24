@@ -32,7 +32,7 @@ const FollowSideBar = () => {
 
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.user.currentUser);
-  console.log("current user's followers:", currentUser.followers);
+  // console.log("current user's followers:", currentUser.followers);
 
   const [followerProfiles, setFollowerProfiles] = useState([]);
   const [followingProfiles, setFollowingProfiles] = useState([]); // New state for following profiles
@@ -66,8 +66,8 @@ const FollowSideBar = () => {
     fetchFollowingProfiles();
   }
 }, [dispatch, currentUser.followers, currentUser.following]);
-console.log('currentUser:', currentUser);
-console.log('followerProfiles:', followerProfiles);
+// console.log('currentUser:', currentUser);
+// console.log('followerProfiles:', followerProfiles);
 
   return (
       <div className="follow-side-bar container-fluid">

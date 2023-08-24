@@ -1,6 +1,14 @@
-import React, { useState } from 'react';
+
 import './setting.css';
 import { Form, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
+import {
+  profileThunk,
+  logoutThunk,
+  updateUserThunk
+}from '../../../movie-reviewer/services/auth-thunks';
 
 const SettingPageNormal = () => {
   const [username, setUsername] = useState('');
@@ -8,16 +16,43 @@ const SettingPageNormal = () => {
   const [userIcon, setUserIcon] = useState('');
   const [signature, setSignature] = useState('');
 
+  const { currentUser } = useSelector((state) => state.user);
+  const [profile, setProfile] = useState(currentUser);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [savedProfile, setSavedProfile] = useState(currentUser);
+
+  const handleUpdateChange = (event, field) => {
+    const newProfile = { ...profile, [field]: event.target.value };
+    setProfile(newProfile);
+  };
+
+  const save = async () => {
+    const updateResponse = await dispatch(updateUserThunk(profile));
+    const fetchResponse = await dispatch(profileThunk());
+    
+    if (updateResponse.payload && fetchResponse.payload) {
+      setProfile(fetchResponse.payload); // Updates local state with fetched data
+    }
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission and updating user information here
   };
 
+  useEffect( () => {
+    const loadProfile = async () => {
+        const { payload } = await dispatch(profileThunk());
+        setProfile(payload);
+    };
+   loadProfile();
+}, []);
   return (
       <div className="setting-page">
         <h2 className="mb-4">Account Settings</h2>
 
-        <div className="row">
+        {/* <div className="row">
           <div className="col-4">
             <div className="avatar">
               <span className="form-label">Avatar</span><br />
@@ -71,7 +106,50 @@ const SettingPageNormal = () => {
             </Form>
           </div>
 
-        </div>
+        </div> */}
+    {profile && (<div>
+      <div>
+       <label>First Name</label>
+       {/* <input type="text" value={profile.firstName}
+        onChange={(event) => {
+         const newProfile = {
+          ...profile, firstName: event.target.value,
+         };
+         setProfile(newProfile);
+        }}/> */}
+
+        <input
+            type="text"
+            value={profile.firstName}
+            onChange={(event) => handleUpdateChange(event, "firstName")}
+        />
+
+      </div>
+      <div>
+       <label>Last Name</label>
+       {/* <input type="text" value={profile.lastName}
+        onChange={(event) => {
+         const newProfile = {
+          ...profile, lastName: event.target.value,
+         };
+         setProfile(newProfile);
+        }}/> */}
+
+        <input
+            type="text"
+            value={profile.lastName}
+            onChange={(event) => handleUpdateChange(event, "lastName")}
+        />
+
+      </div></div>
+    )}
+    <button
+     onClick={() => {
+       dispatch(logoutThunk());
+       navigate("/tuiter/login");
+     }}>                   Logout</button>
+    <button onClick={save}>Save  </button>
+
 </div>
   );
 };

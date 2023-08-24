@@ -1,4 +1,3 @@
-import React from 'react';
 import {Routes, Route, Navigate, useNavigate} from 'react-router-dom';
 import Header from "./header/header";
 import HorizontalNavbarNormal from "./navigation/navigation-bar-horizontal-normal";
@@ -8,6 +7,8 @@ import FavoritePage from "./profile-pages/favorite/favorite";
 import SettingPageNormal from "./profile-pages/setting/setting-normal";
 import {useDispatch, useSelector} from "react-redux";
 import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { profileThunk, } from '../movie-reviewer/services/auth-thunks';
 
 
 function ProfileNormal () {
@@ -35,16 +36,10 @@ function ProfileNormal () {
         />
         <HorizontalNavbarNormal/>
         <h1> we are at profile normal</h1>
-        {/* <Routes>
-          <Route path={`/home-page`} element={<HomePage />} />
-          <Route path={`/post`} element={<PostPage />} />
-          <Route path={`/favorite`} element={<FavoritePage />} />
-          <Route path={`/setting`} element={<SettingPageNormal />} />
-        </Routes> */}
         <HomePage />
-        <PostPage />
+        {/* <PostPage /> */}
         <FavoritePage />
-        <SettingPageNormal />
+        {/* <SettingPageNormal /> */}
       </div>
   );
 };

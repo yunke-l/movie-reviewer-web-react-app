@@ -30,7 +30,8 @@ function ViewOwnProfile() {
   }, [dispatch, userID]);
 
   let ProfileComponent;
-  console.log("current user role is :",currentUser.role);
+  // console.log("current user role is :",currentUser.role);
+  
   // switch (currentUser?.role) {
   //   case 'regular':
       

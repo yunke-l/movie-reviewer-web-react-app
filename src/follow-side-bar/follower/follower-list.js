@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './follower-list.css';
+import { Link } from 'react-router-dom';
 
 const FollowersList = ({ followers }) => {
   const [showMore, setShowMore] = useState(false);
@@ -16,10 +17,17 @@ const FollowersList = ({ followers }) => {
         <ul className={showMore ? 'expanded' : ''}>
           {displayedFollowers.map((follower) => (
               <li key={follower.id} className="following-item">
-                <img src={follower.avatar} alt={`${follower.username}'s icon`} className="people-icon" />
+                <Link to={`/reviewer/profile/${follower._id}`}>
+                  <img
+                    className="people-icon"
+                    src={follower.avatar}
+                    alt={`${follower.username}'s Avatar`}
+                  />
+                </Link>
+                {/* <img src={follower.avatar} alt={`${follower.username}'s icon`} className="people-icon" /> */}
                 <div className="people-info">
                   <h3 className="people-name">{follower.username}</h3>
-                  <div className="people-level">LV{follower.level}</div>
+                  <div className="people-level">Lv.{follower.level}</div>
                 </div>
               </li>
           ))}
