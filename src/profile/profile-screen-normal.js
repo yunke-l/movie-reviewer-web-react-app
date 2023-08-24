@@ -9,6 +9,7 @@ import {useDispatch, useSelector} from "react-redux";
 import { useLocation } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
 import { profileThunk, } from '../movie-reviewer/services/auth-thunks';
+import SettingsScreen from './profile-pages/setting/setting';
 
 
 function ProfileNormal () {
@@ -34,12 +35,13 @@ function ProfileNormal () {
             // initialUserSignature="Good good study! Day day up!"
             userLevel={userLevel}
         />
-        <HorizontalNavbarNormal/>
-        <h1> we are at profile normal</h1>
+        {/* <HorizontalNavbarNormal/> */}
+        {/* <h1> we are at profile normal</h1> */}
         <HomePage />
         {/* <PostPage /> */}
-        <FavoritePage />
+        {/* <FavoritePage /> */}
         {/* <SettingPageNormal /> */}
+        <SettingsScreen/>
       </div>
   );
 };

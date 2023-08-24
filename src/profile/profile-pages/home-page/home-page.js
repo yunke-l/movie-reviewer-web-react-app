@@ -8,7 +8,7 @@ const HomePage = () => {
       <>
       <div className="row">
         <div className="col-9">
-          <h1> Home Page</h1>
+          {/* <h1> Home Page</h1> */}
           <PostPage/>
         </div>
         <div className="col-3">

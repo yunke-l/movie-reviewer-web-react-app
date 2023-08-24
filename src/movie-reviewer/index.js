@@ -44,7 +44,8 @@ function MovieReviewer() {
            </div>
          </div>
 
-         <div className="bg-dark">
+         {/* <div className="bg-dark"> */}
+         <div>
            <Nav />
 
            <Routes>
