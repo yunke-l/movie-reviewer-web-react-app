@@ -21,8 +21,8 @@ function ProfileNormal () {
   console.log("userID in profilenormal: ", userID)
 
     // Get the current location object using useLocation
-    const location = useLocation();
-    console.log('Current path:', location.pathname);
+    // const location = useLocation();
+    // console.log('Current path:', location.pathname);
 
   return (
       <div className="profile-page">

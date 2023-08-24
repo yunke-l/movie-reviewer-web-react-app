@@ -27,6 +27,7 @@ const authSlice = createSlice({
   },
 
   [updateUserThunk.fulfilled]: (state, { payload }) => {
+    console.log('Updated User Data:', payload); 
     state.currentUser = payload;
   },
 
