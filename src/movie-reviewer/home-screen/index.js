@@ -15,37 +15,8 @@ const HomeScreen = () => {
    <>
      <div className="row">
         <div className="position-relative ml-0">
-            {/* Buttons to navigate to other routes
-            <div className="button-container">
-            <Link to="/reviewer/search">
-              <button className="btn btn-primary">Search Movies</button>
-            </Link>
 
-              {!currentUser && <Link to="/reviewer/login">
-              <button className="btn btn-primary">Login</button>
-            </Link> }
-
-              {!currentUser && <Link to="/reviewer/register">
-              <button className="btn btn-primary">Register</button>
-            </Link> }
-
-              {currentUser ? (
-                  <>
-                    <Link to={`/reviewer/profile/${id}`}>
-                      <button className="btn btn-primary">Profile</button>
-                    </Link>
-
-                    <button className="btn btn-primary" onClick={() => {
-                      dispatch(logoutThunk());
-                      navigate("/reviewer/home");}
-                    }>
-                      Logout
-                    </button>
-                  </>
-              ) : null}
-            </div> */}
         <div className="home-posts-container">
-        <h5 className="position-relative  text-primary">Discover, Discuss, and Dive into the World of Movies.</h5>
           <HomePosts />
         </div>
         </div>

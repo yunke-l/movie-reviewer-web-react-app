@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.css';
 import {Provider} from "react-redux";
 import HomeScreen from "./home-screen";
 import LoginScreen from "./register-login/login-screen";
-
 import SearchBar from './search/searchbar';
 import DetailsScreen from './details/index';
 import Nav from "../nav";
@@ -31,27 +32,36 @@ function MovieReviewer() {
 
 
  return (
-  <Provider store={store}>
-    {/* <div> */}
-      <Nav/>
-      {/* <BrowserRouter> */}
-        <Routes>
-          <Route path="/home" element={<HomeScreen/>}/>
-          <Route path="/login"    element={<LoginScreen />} />
-          <Route path="/register"    element={<RegisterScreen />} />
-          {/* <Route path="/profile/:id/*" element={<ViewOwnProfile />} /> */}
+     <Provider store={store}>
+       <div className="container">
+         <div className="row justify-content-center mt-4">
+           <div className="position-relative img-container">
+             <img
+                 className="header-img img-fluid extended-img"
+                 src="/images/headers/header-background5.jpg"
+                 alt="Banner"
+             />
+           </div>
+         </div>
 
-          {/* <Route path="/profile/:id/*" element={<UserProfile />} /> */}
-          <Route path="/profile/:id" element={<ViewOtherProfiles />} />
-          <Route path="/profile" element={<ViewOwnProfile />} />
+         <div className="bg-dark">
+           <Nav />
 
-          <Route path="/search" element={<SearchBar />} />
-          <Route path="/search/:searchTerm" element={<SearchRouteWrapper />} />
-          <Route path="/details/:imdbID" element={<DetailsScreen />} />
-        </Routes>
-      {/* </BrowserRouter> */}
-    {/* </div> */}
-  </Provider>
+           <Routes>
+             <Route path="/home" element={<HomeScreen />} />
+             <Route path="/login" element={<LoginScreen />} />
+             <Route path="/register" element={<RegisterScreen />} />
+             {/* <Route path="/profile/:id/*" element={<ViewOwnProfile />} /> */}
+             {/* <Route path="/profile/:id/*" element={<UserProfile />} /> */}
+             <Route path="/profile/:id" element={<ViewOtherProfiles />} />
+             <Route path="/profile" element={<ViewOwnProfile />} />
+             <Route path="/search" element={<SearchBar />} />
+             <Route path="/search/:searchTerm" element={<SearchRouteWrapper />} />
+             <Route path="/details/:imdbID" element={<DetailsScreen />} />
+           </Routes>
+         </div>
+       </div>
+     </Provider>
  );
 }
 

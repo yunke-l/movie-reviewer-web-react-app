@@ -20,39 +20,49 @@ const HomePosts = () => {
     dispatch(findPostsThunk())
   }, [])
 
-    return(
-      <ul className="list-group">
-              <h3>homepost</h3>
-      {loading && (
-        <li className="list-group-item">
-          Loading...
-        </li>
-      )}
-      {!loading && posts.map(post => (
-        <li key={post._id} className="list-group-item">
-          <div>
-            <PostItem post={post} />
-            <PostStats post={post} />
+  return (
+      <div className="container mt-4">
+        <div className="row justify-content-center">
+          <div className="col-md-12">
+            <div className="jumbotron bg-dark text-white p-4">
+              <h2 className="mb-4 text-primary">🎬 Home Posts</h2>
+              <div className="row">
+                {loading ? (
+                    <div className="col-12 text-center">
+                      <div className="spinner-border text-primary" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                      </div>
+                    </div>
+                ) : (
+                    posts.map(post => (
+                        <div key={post._id} className="col-md-4 mb-4">
+                          <PostItem post={post} />
+                          <PostStats post={post} />
+                        </div>
+                    ))
+                )}
+              </div>
+              {currentUser ? (
+                  <div className="row">
+                    <div className="col-12">
+                      <h4 className="mb-3 text-primary">Your Recent Posts:</h4>
+                    </div>
+                    <div className="col-12">
+                      <LoginPosts username={currentUser.username} />
+                    </div>
+                  </div>
+              ) : (
+                  <div className="row">
+                    <div className="col-12 text-center">
+                      <h4>Please login to see your recent posts</h4>
+                    </div>
+                  </div>
+              )}
+            </div>
           </div>
-        </li>
-      ))}
+        </div>
+      </div>
 
-      {/* Conditionally render LoginPosts if the user is logged in */}
-      {/* <h3>Your Recent Posts:</h3>
-      {currentUser &&  <LoginPosts username={currentUser.username} />} */}
-
-      {/* Conditionally render LoginPosts if the user is logged in */}
-      {currentUser ? (
-        <>
-          <LoginPosts username={currentUser.username} />
-        </>
-      ) : (
-        <h3>Please login to see your recent posts</h3>
-      )}
-    </ul>
-
-    
-      
-    );
-   };
-   export default HomePosts;
+  );
+};
+  export default HomePosts;
