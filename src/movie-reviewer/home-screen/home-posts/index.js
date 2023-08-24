@@ -22,14 +22,14 @@ const HomePosts = () => {
 
   return (
       <div className="container mt-4">
-        <div className="row justify-content-center">
+        <div className="row">
           <div className="col-md-12">
-            <div className="jumbotron bg-dark text-white p-4">
-              <h2 className="mb-4 text-primary">🎬 Home Posts</h2>
+            <div className="bg-dark text-white p-4">
+              <h2 className="mb-4 text-white">🎬 Home Posts</h2>
               <div className="row">
                 {loading ? (
                     <div className="col-12 text-center">
-                      <div className="spinner-border text-primary" role="status">
+                      <div className="text-primary" role="status">
                         <span className="visually-hidden">Loading...</span>
                       </div>
                     </div>
@@ -44,13 +44,25 @@ const HomePosts = () => {
               </div>
               {currentUser ? (
                   <div className="row">
+                    <div className="col-12 text-center">
+                      <h4>No more content available. We're eager to hear more of your thoughts. Share your opinions freely!</h4>
+                    </div>
                     <div className="col-12">
                       <h4 className="mb-4 text-primary">Your Recent Posts:</h4>
                     </div>
                     <div className="col-12">
                       <LoginPosts username={currentUser.username} />
                     </div>
+
                   </div>
+                  // <div className="row">
+                  //   <div className="col-12">
+                  //     <h4 className="mb-4 text-primary">Your Recent Posts:</h4>
+                  //   </div>
+                  //   <div className="col-12">
+                  //     <LoginPosts username={currentUser.username} />
+                  //   </div>
+                  // </div>
               ) : (
                   <div className="row">
                     <div className="col-12 text-center">

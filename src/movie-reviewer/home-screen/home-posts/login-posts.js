@@ -4,6 +4,7 @@ import { findPostsThunk } from '../../services/posts-thunks';
 import { useSelector, useDispatch } from "react-redux";
 import React, {useEffect} from "react";
 import { useState } from "react";
+import PostStats from "./post-stats";
 
 const LoginPosts = ({ username }) => {
     const { posts, loading } = useSelector((state) => state.posts);
@@ -28,5 +29,6 @@ const LoginPosts = ({ username }) => {
     </div>
     );
   };
-  
+
+
 export default LoginPosts;

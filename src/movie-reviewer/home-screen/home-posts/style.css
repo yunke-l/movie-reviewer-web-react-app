@@ -16,6 +16,7 @@
     gap: 20px;
     padding: 10px;
     align-items: flex-start; /* Align items to the top */
+    height: 600px;
     /* max-height: 250px;
      overflow: hidden; */
   }
@@ -29,24 +30,28 @@
   }
   
   .movie-photo {
-    max-width: 80%; /* Ensure the image doesn't exceed its container */
-    height: auto;
+    max-height: 300px; /* Ensure the image doesn't exceed its container */
+    width: auto;
   }
+
+
   
-  .home-movie-title {
-    font-size:25px;
-    margin-top: 13px; /* Add some spacing between the image and title */
-    font-weight: bold;
-  }
-  
-  /* Right Part (Review Info) */
+
+
+.overflow-wrap-word {
+  word-wrap: break-word; /* Allow long words to break and wrap to the next line */
+  overflow-wrap: break-word; /* Compatibility for older browsers */
+}
+
+
+/* Right Part (Review Info) */
   .post-content-container2 {
     flex: 3; /* Let the right part grow to take more space */
     display: flex;
     flex-direction: column;
   }
   .post-content-container {
-    flex: 2;
+
     display: flex;
     flex-direction: column;
     align-self: flex-start; /* Align to the top within its container */
@@ -67,6 +72,7 @@
   
   .post-details {
     flex: 1;
+    overflow-wrap: break-word;
   }
   
   .post-title {
@@ -97,4 +103,24 @@
   color: red;
 }
 
-  
+
+
+.card-title {
+  font-size: 25px;
+  margin-top: 13px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+card-body {
+  width: 100%;
+}
+
+.post-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* Center the text horizontally */
+
+}

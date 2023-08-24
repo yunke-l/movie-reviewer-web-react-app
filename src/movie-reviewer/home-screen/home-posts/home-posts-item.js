@@ -33,16 +33,18 @@ const PostItem = (
     const formattedTime = format(vancouverCreatedAt, "MMM dd, yyyy HH:mm:ss");
 
     return (
-        <div className="post-item card mb-4">
-          <div className="movie-info">
+        <div className="post-item card mb-4 align-items-center">
+          <div className="post-item-content">
             <img
-                className="movie-photo card-img-top"
+                className="movie-photo img-fluid"
                 src={post.moviePoster}
                 alt={`${post.movieTitle} Movie Poster`}
             />
-            <div className="home-movie-title card-title">{post.movieTitle}</div>
+            <div className="card-title align-items-center">{post.movieTitle}</div>
           </div>
+
           <div className="post-content-container card-body">
+          <div className="row">
             <div className="post-header d-flex align-items-center justify-content-between">
               <Link to={`/reviewer/profile/${post.userId}`}>
                 <img
@@ -58,9 +60,14 @@ const PostItem = (
                 </div>
               </div>
             </div>
-            <div className="post-content mt-3">{post.content}</div>
+            <div className="post-content mt-3" style={{ overflowWrap: 'break-word' }}>
+              {post.content}
+            </div>
           </div>
         </div>
+        </div>
+
+
 
     );
 };
