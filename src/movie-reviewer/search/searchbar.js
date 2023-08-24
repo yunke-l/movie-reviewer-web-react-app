@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';  // Added useNavigate
 
 const SearchBar = (props) => {
     const [searchTerm, setSearchTerm] = useState('');
-    const { movies, loading } = useSelector((state) => state.omdb);
+    const { movies } = useSelector((state) => state.omdb);
     const dispatch = useDispatch();
 
     const navigate = useNavigate();  // Use the useNavigate hook
@@ -18,10 +18,28 @@ const SearchBar = (props) => {
         }
     };
 
-    const handleSearchClick = () => {
-        dispatch(findMovieBySearchTermThunk(searchTerm));
-        navigate(`/reviewer/search/${searchTerm}`);  // Navigate to the corresponding searchTerm
+
+    const handleSearchClick = async () => {
+        try {
+
+            const result = await dispatch(findMovieBySearchTermThunk(searchTerm));
+            console.log("result", result);
+            if (!result.payload) {
+                navigate(`/reviewer/search`);
+                throw new Error("No movies found for the given search term");
+            }
+            else {
+                navigate(`/reviewer/search/${searchTerm}`);
+                console.log("searchTerm", searchTerm);
+            }
+        } catch (error) {
+
+            alert(error.message);
+            setSearchTerm('');
+
+        }
     };
+
 
     return (
         <div>
