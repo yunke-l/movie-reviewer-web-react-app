@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { findUserByIdThunk } from '../../movie-reviewer/services/user-thunks';
 import PostItem from '../../movie-reviewer/home-screen/home-posts/home-posts-item';
-// import { followUser } from './path-to-followUser-action'; // Import the action to follow a user
-// import { fetchUserByIdThunk } from './path-to-fetchUserByIdThunk'; // Import the action to fetch user data by ID
-// import PostItem from './PostItem'; // Your PostItem component
 import { findPostByUserIdThunk } from '../../movie-reviewer/services/posts-thunks';
 import { fetchUserByIdThunk } from '../../movie-reviewer/services/user-thunks';
-import Header from '../header/header';
 import "./view-other-profiles.css";
 import { updateUserThunk } from '../../movie-reviewer/services/auth-thunks';
 
@@ -18,6 +13,8 @@ function ViewOtherProfiles() {
   const userPosts = useSelector((state) => state.posts.userPosts);
   const userDetails = useSelector((state) => state.userDetails.userById);
   const currentUser = useSelector((state) => state.user.currentUser);
+
+  // const [userDetailsLocal, setUserDetailsLocal] = useState(null); 
 
   useEffect(() => {
     // Fetch the user's posts based on id
@@ -29,18 +26,24 @@ function ViewOtherProfiles() {
     dispatch(fetchUserByIdThunk(id));
   }, [dispatch, id ]);
 
-
-  useEffect(() => {
-    // This effect will run whenever currentUser changes
-    console.log('currentUser Following:', currentUser.following);
-  }, [currentUser]);
+    // Update local state when userDetails changes in the Redux store
+    // useEffect(() => {
+    //   if (userDetails) {
+    //     setUserDetailsLocal(userDetails);
+    //   }
+    // }, [userDetails]);
+  
+    // useEffect(() => {
+  //   // Fetch the user's posts based on id
+  //   dispatch(findPostByUserIdThunk(id));
+  // }, [dispatch, id, userDetails]); // Add userDetails as a dependency
+  
 
   if (!userDetails) {
     return <div>Loading...</div>;
   }
 
-  console.log('currentUser Following:', currentUser.following);
-  console.log('user detail Followers:', userDetails.followers);
+  // console.log('currentUser Following:', currentUser.following);
 
   const handleFollowClick = async() => {
       if (!currentUser || !currentUser._id) {
@@ -52,24 +55,38 @@ function ViewOtherProfiles() {
         alert('You cannot follow your own account.');
         return;
       }
-      
-      const updatedCurrentUser = {
-        ...currentUser,
-        following: [...currentUser.following, id] // Spread the existing array and add the followed user's ID
-      };
-      
-      const updatedUserDetails = {
-        ...userDetails,
-        followers: [...userDetails.followers, currentUser._id] // Spread the existing array and add the current user's ID
-      };
-      //two arrays are right, but it didn't upload to backend.
-      console.log('Updated Current User Following:', updatedCurrentUser.following);
-      console.log('Updated Current User name:', updatedCurrentUser.username);
-      console.log('Updated User Details Followers:', updatedUserDetails.followers);
-      await dispatch(updateUserThunk(updatedCurrentUser));
-      
-      await dispatch(updateUserThunk(updatedUserDetails));
 
+      if (currentUser.following &&currentUser.following.includes(userDetails._id)) {
+        // Already following, perform unfollow action
+        const updatedCurrentUser = {
+          ...currentUser,
+          following: currentUser.following.filter(userId => userId !== id) // Remove target user ID
+        };
+    
+        const updatedUserDetails = {
+          ...userDetails,
+          followers: userDetails.followers.filter(userId => userId !== currentUser._id) // Remove current user ID
+        };
+
+        dispatch(updateUserThunk(updatedCurrentUser));
+        dispatch(updateUserThunk(updatedUserDetails));
+
+      } else {
+        // Not following, perform follow action
+        const updatedCurrentUser = {
+          ...currentUser,
+          following: [...currentUser.following, id]
+        };
+    
+        const updatedUserDetails = {
+          ...userDetails,
+          followers: [...userDetails.followers, currentUser._id]
+        };
+    
+        await dispatch(updateUserThunk(updatedCurrentUser));
+        await dispatch(updateUserThunk(updatedUserDetails));
+
+      }
 
       }
       
@@ -77,10 +94,9 @@ function ViewOtherProfiles() {
         alert('Please log in first to follow an account.');
       };
 
-
+    
   return (
     <div className="view-other-profiles-profile-container">
-    {/* <h2>Hi, you are viewing {userDetails.username}'s profile</h2> */}
     
     <div className="view-other-profiles-user-info">
       <div className="view-other-profiles-avatar">
@@ -90,17 +106,16 @@ function ViewOtherProfiles() {
       
       <div className="view-other-profiles-user-details">
         <h2>{userDetails.username}'s Profile</h2>
-        {/* <p>Level: {userDetails.level}</p> */}
         <p>Followers: {userDetails.followers.length}</p>
         <p>Following: {userDetails.following.length}</p>
         
         {currentUser ? (
-          <button onClick={handleFollowClick}>
+          <button className="post-button" onClick={handleFollowClick}>
+             {currentUser.following && userDetails._id && currentUser.following.includes(userDetails._id) ? 'Unfollow' : 'Follow'}
             {/* {currentUser.following.includes(userDetails._id) ? 'Unfollow' : 'Follow'} */}
-            Follow
           </button>
         ) : (
-          <button onClick={handleLoginAlert}>Follow</button>
+          <button className="post-button" onClick={handleLoginAlert}>Follow</button>
         )}
 
       </div>

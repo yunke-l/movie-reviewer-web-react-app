@@ -10,7 +10,9 @@ import "./style.css";
 
 const HomePosts = () => {
   const {posts, loading} = useSelector(state => state.posts)
-  const { currentUser } = useSelector((state) => state.user);
+  const currentUser = useSelector((state) => state.user.currentUser);
+
+  // const { currentUser } = useSelector((state) => state.user);
   
   const dispatch = useDispatch();
   useEffect(() => {
