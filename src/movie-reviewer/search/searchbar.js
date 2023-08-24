@@ -27,31 +27,33 @@ const SearchBar = (props) => {
         <div>
             <ul className="list-group">
                 <li className="list-group-item">
-                    <input
-                        onChange={handleInputChange}
-                        value={searchTerm}
-                        type="text"
-                        placeholder="Search"
-                    />
-                    <button
-                        className="btn btn-primary float-end"
-                        onClick={handleSearchClick}>  {/* Updated click handler */}
-                        Search
-                    </button>
+                    <div className="input-group">
+                        <input
+                            onChange={handleInputChange}
+                            value={searchTerm}
+                            type="text"
+                            className="form-control"
+                            placeholder="Search"
+                        />
+                        <button
+                            className="btn btn-primary"
+                            onClick={handleSearchClick}>
+                            Search
+                        </button>
+                    </div>
                 </li>
                 {/* //{loading && <p>Loading...</p>} */}
-                {
-                    movies && movies.map((movie) =>
-                        <li key={movie.imdbID}
-                            className="list-group-item">
+                {movies &&
+                    movies.map((movie) => (
+                        <li key={movie.imdbID} className="list-group-item">
                             <Link to={`/reviewer/details/${movie.imdbID}`}>
                                 {movie.Title}
                             </Link>
                         </li>
-                    )
-                }
+                    ))}
             </ul>
         </div>
+
     );
 }
 

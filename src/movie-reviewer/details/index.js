@@ -22,7 +22,7 @@ const DetailsScreen = () => {
     }, [])
 
     return (
-        <div className="detail-container">
+        <div className="detail-container bg-light">
             <MovieDetails details={details} /> {/* Include the MovieDetails component */}
             {/* Add postreviews and recentreviews components here */}
             {/* <PostReview onPostReview={handlePostReview} /> */}

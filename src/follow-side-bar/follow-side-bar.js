@@ -72,7 +72,7 @@ const FollowSideBar = () => {
 
 
   return (
-      <div className="follow-side-bar container-fluid">
+      <div className="follow-side-bar container-fluid bg-light">
         <FollowingList followings={followingProfiles} />
         {/* <FollowersList followers={followers} /> */}
         <FollowersList followers={followerProfiles} />

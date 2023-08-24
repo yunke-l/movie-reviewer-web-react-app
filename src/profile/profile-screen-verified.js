@@ -20,7 +20,8 @@ function ProfileVerified () {
   return (
       <div className="profile-page">
         <Header
-            backgroundImage="/images/headers/header-background4.jpeg"
+            // backgroundImage="/images/headers/header-background4.jpeg"
+            backgroundColor="#000000"
             userImage={userImage}
             userName={userName}
             // initialUserSignature="Good good study! Day day up!"

@@ -28,14 +28,6 @@
     display: flex;
     align-items: center;
 
-    span {
-        margin-right: 20px;
-    }
-
-
-
-
-
 }
 
 .star-icon {
@@ -149,3 +141,17 @@
     color: #333;
   }
   
+.detail-item {
+  margin-left:20px;
+  margin-right:20px;
+}
+
+
+.review-body {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+}

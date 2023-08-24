@@ -15,8 +15,8 @@ const Header = ({ backgroundImage,userImage, userName, userLevel }) => {
   // };
 
   return (
-      <header className="profile-header" style={{ backgroundImage: `url(${backgroundImage})` }}>
-        <div className="user-profile">
+      <header className="profile-header">
+        <div className="user-profile bg-light">
           <img src={userImage} alt="User" className="user-icon" />
           <div className="user-details">
             <div className="user-header">

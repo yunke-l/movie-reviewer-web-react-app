@@ -63,10 +63,10 @@ function SettingsScreen() {
     // </div>
     // <button className='post-button' onClick={handleSaveChanges}>Save Changes</button>
     // </div>
-    <div className="setting-profile-edit">
-        <h1 className="setting-edit-title">Edit Profile</h1>
+    <div className="setting-profile-edit bg-light">
+        <h1 className="setting-edit-title">✏️ Edit Profile</h1>
         <div className="setting-input-group">
-            <label className="input-label">First Name:</label>
+            <label className="input-label">First Name: </label>
             <input
                 className="input-field"
                 type="text"
@@ -75,7 +75,7 @@ function SettingsScreen() {
             />
         </div>
         <div className="setting-input-group">
-            <label className="input-label">Last Name:</label>
+            <label className="input-label">Last Name: </label>
             <input
                 className="input-field"
                 type="text"

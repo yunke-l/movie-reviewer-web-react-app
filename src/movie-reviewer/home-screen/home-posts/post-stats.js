@@ -29,7 +29,7 @@ const PostStats = ({ post}) => {
 
   return (
       <div className="wd-footer-container">
-        <div className="row">
+        <div className="row ">
           <div className="col-2 wd-footer-item">
             <FaRegComment />
             <span className="ms-1">{post.replies}</span>
@@ -50,7 +50,7 @@ const PostStats = ({ post}) => {
             {post.disliked ? <PiThumbsDownFill /> : <PiThumbsDownDuotone />}
             <span className="ms-1">{post.dislikes}</span>
           </div>
-          <div className="col-3 wd-footer-item">
+          <div className="col-2 wd-footer-item">
             <FiShare className="ms-1" />
           </div>
         </div>

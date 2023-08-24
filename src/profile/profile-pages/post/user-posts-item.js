@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { findPostByUsernameThunk } from "../../../movie-reviewer/services/posts-thunks";
-import PostItem from "../../../movie-reviewer/home-screen/home-posts/home-posts-item";
+import LoginPostsItems
+  from "../../../movie-reviewer/home-screen/home-posts/login-posts-items";
 import PostStats from "../../../movie-reviewer/home-screen/home-posts/post-stats";
-
+import "./styles.css";
 
 const UserPosts = () => {
   const { posts, loading } = useSelector((state) => state.posts);
@@ -23,17 +24,17 @@ const UserPosts = () => {
 
   return (
       <div>
-        <h2>Posts by {username}</h2>
-        <ul className="list-group">
+        <h2 className="post-username">🎬 Posts by {username}</h2>
+        <ul className="list-group bg-light">
           {loading && <li className="list-group-item">Loading...</li>}
           {!loading && userPosts.length === 0 && (
-              <li className="list-group-item">You haven't posted anything yet. Share your thoughts and experiences!</li>
+              <li className="list-group-item bg-light">You haven't posted anything yet. Share your thoughts and experiences!</li>
           )}
           {!loading &&
               userPosts.map((userPost) => (
                   <li key={userPost._id} className="list-group-item">
                     <div>
-                      <PostItem post={userPost} />
+                      <LoginPostsItems post={userPost} />
                       <PostStats post={userPost} />
                     </div>
                   </li>

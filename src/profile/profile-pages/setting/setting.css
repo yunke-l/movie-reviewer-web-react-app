@@ -30,20 +30,6 @@
   box-shadow: 0 0 5px rgba(66, 133, 244, 0.5);
 }
 
-.setting-btn-primary {
-  padding: 10px 20px;
-  margin-top: 20px;
-  background-color: #007bff;
-  border: none;
-}
-
-.setting-btn-primary:hover {
-  background-color: #0056b3;
-}
-
-.setting-btn-primary:focus {
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-}
 
 .form-label {
   display: block;
@@ -63,11 +49,10 @@
 
 .setting-profile-edit {
   margin: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f7f7f7;
+
   max-width: 450px;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .setting-edit-title {
@@ -79,13 +64,13 @@
   margin-bottom: 15px;
 }
 
-.setting-input-label {
+.input-label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.setting-input-field {
+.input-field {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
@@ -105,4 +90,9 @@
 
 .setting-save-button:hover {
   background-color: #0056b3;
+}
+
+
+.input-label {
+  margin-right:10px;
 }

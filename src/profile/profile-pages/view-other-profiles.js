@@ -6,7 +6,8 @@ import { findPostByUserIdThunk } from '../../movie-reviewer/services/posts-thunk
 import { fetchUserByIdThunk } from '../../movie-reviewer/services/user-thunks';
 import "./view-other-profiles.css";
 import { updateUserThunk } from '../../movie-reviewer/services/auth-thunks';
-
+import LoginPostItem
+  from "../../movie-reviewer/home-screen/home-posts/login-posts-items";
 function ViewOtherProfiles() {
   const dispatch = useDispatch();
   const { id } = useParams(); // Get the id from the URL parameter
@@ -122,9 +123,9 @@ function ViewOtherProfiles() {
     </div>
     
     <div className="view-other-profiles-user-posts">
-      <h3>{userDetails.username}'s Posts</h3>
+      <h3>🎬 {userDetails.username}'s Posts</h3>
       {userPosts.map((post) => (
-        <PostItem key={post.id} post={post} />
+        <LoginPostItem key={post.id} post={post} />
       ))}
     </div>
   </div>

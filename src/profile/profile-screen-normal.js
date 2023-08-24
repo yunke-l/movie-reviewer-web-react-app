@@ -1,4 +1,5 @@
 import {Routes, Route, Navigate, useNavigate} from 'react-router-dom';
+import "./style.css";
 import Header from "./header/header";
 import HorizontalNavbarNormal from "./navigation/navigation-bar-horizontal-normal";
 import HomePage from "./profile-pages/home-page/home-page.js";
@@ -29,7 +30,7 @@ function ProfileNormal () {
   return (
       <div className="profile-page">
         <Header
-            backgroundImage="/images/headers/header-background4.jpeg"
+            backgroundColor="#000000"
             userImage={userImage}
             userName={userName}
             // initialUserSignature="Good good study! Day day up!"
@@ -37,11 +38,15 @@ function ProfileNormal () {
         />
         {/* <HorizontalNavbarNormal/> */}
         {/* <h1> we are at profile normal</h1> */}
-        <HomePage />
+
+        <div>
+          <HomePage />
+        </div>
+
         {/* <PostPage /> */}
         {/* <FavoritePage /> */}
         {/* <SettingPageNormal /> */}
-        <SettingsScreen/>
+
       </div>
   );
 };

@@ -32,9 +32,16 @@ const PostItem = (
     // Format the Vancouver timestamp
     const formattedTime = format(vancouverCreatedAt, "MMM dd, yyyy HH:mm:ss");
 
+  // find the user from the store
+  const user = useSelector((state) => state.user.currentUser);
+  // find the user role
+  const userRole = user?.role;
+  console.log(userRole)
+
     return (
-        <div className="post-item card mb-4 align-items-center">
+        <div className="post-item card mb-2 align-items-center">
           <div className="post-item-content">
+
             <img
                 className="movie-photo img-fluid"
                 src={post.moviePoster}
@@ -43,28 +50,39 @@ const PostItem = (
             <div className="card-title align-items-center">{post.movieTitle}</div>
           </div>
 
-          <div className="post-content-container card-body">
-          <div className="row">
-            <div className="post-header d-flex align-items-center justify-content-between">
-              <Link to={`/reviewer/profile/${post.userId}`}>
-                <img
-                    className="user-avatar rounded-circle"
-                    src={post.userAvatar}
-                    alt={`${post.username}'s Avatar`}
-                />
-              </Link>
-              <div className="post-details">
-                <div className="post-title h5 mb-0">{post.title}</div>
-                <div className="post-subtitle text-muted">
-                  {post.username} - {formattedTime}
+          <div className="card-body">
+              <hr/>
+              <div className="post-header">
+                <div>
+                <Link to={`/reviewer/profile/${post.userId}`}>
+                  <img
+                      className="user-avatar rounded-circle"
+                      src={post.userAvatar}
+                      alt={`${post.username}'s Avatar`}
+                  />
+                </Link>
+                </div>
+                <div className="post-details ">
+                  <div className="post-title">{post.title}</div>
+                  <div className="post-subtitle text-muted" >
+                    {post.username} - {formattedTime}
+                  </div>
                 </div>
               </div>
+              <div className="post-content mt-3">
+                {post.content}
+              </div>
+
+
+
             </div>
-            <div className="post-content mt-3" style={{ overflowWrap: 'break-word' }}>
-              {post.content}
-            </div>
-          </div>
-        </div>
+
+          {userRole === 'admin' && (
+              <div className="close-button" onClick={() => deletepostHandler(post._id)}>
+                X
+              </div>
+          )}
+
         </div>
 
 

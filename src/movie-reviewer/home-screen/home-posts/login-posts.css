@@ -1,0 +1,53 @@
+.card {
+  padding:10px;
+}
+
+.card-title {
+  font-size: 20px;
+  margin-top: 13px;
+  color: #333;
+  font-weight: bold;
+}
+
+.movie-info {
+  flex: 1; /* Let the left part grow to take available space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-photo {
+  max-height: 300px; /* Ensure the image doesn't exceed its container */
+  width: auto;
+}
+
+
+.post-title {
+  font-size: 18px;
+  font-weight: bold;
+  width: 80%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+
+.post-content {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 10;
+  overflow: hidden;
+}
+
+.post-layout {
+  margin-bottom: 20px;
+}
+
+.post-footer {
+  padding-top: 30%;
+}
+
+/*.wd-footer-container {*/
+/*  width: 60%;*/
+/*}*/

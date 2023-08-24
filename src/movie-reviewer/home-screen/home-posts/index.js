@@ -24,8 +24,8 @@ const HomePosts = () => {
       <div className="container mt-4">
         <div className="row">
           <div className="col-md-12">
-            <div className="bg-dark text-white p-4">
-              <h2 className="mb-4 text-white">🎬 Home Posts</h2>
+            <div className="bg-light text-dark p-4">
+              <h2 className="mb-4 text-dark">🎬 Home Posts</h2>
               <div className="row">
                 {loading ? (
                     <div className="col-12 text-center">
@@ -35,20 +35,27 @@ const HomePosts = () => {
                     </div>
                 ) : (
                     posts.map(post => (
-                        <div key={post._id} className="col-md-4 mb-4">
-                          <PostItem post={post} />
-                          <PostStats post={post} />
+                        <div key={post._id} className="col-md-4 mb-4 align-items-center">
+                          <div>
+                            <PostItem post={post} />
+                          </div>
+                          <div className="post-stat">
+                            <PostStats post={post} />
+                          </div>
                         </div>
                     ))
                 )}
+                <div className="col-12 text-center">
+                  <h4>No more content available. We're eager to hear more of your thoughts.</h4>
+                </div>
               </div>
+
+
               {currentUser ? (
                   <div className="row">
-                    <div className="col-12 text-center">
-                      <h4>No more content available. We're eager to hear more of your thoughts. Share your opinions freely!</h4>
-                    </div>
-                    <div className="col-12">
-                      <h4 className="mb-4 text-primary">Your Recent Posts:</h4>
+                    <div className="col-12 mt-4">
+                      <br className="black-br" />
+                      <h2 className="mb-4 mt-4 text-dark">🎬 Your Recent Posts:</h2>
                     </div>
                     <div className="col-12">
                       <LoginPosts username={currentUser.username} />
