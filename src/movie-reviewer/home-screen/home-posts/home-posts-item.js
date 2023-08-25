@@ -36,7 +36,7 @@ const PostItem = (
   const user = useSelector((state) => state.user.currentUser);
   // find the user role
   const userRole = user?.role;
-  console.log(userRole)
+
 
     return (
         <div className="post-item card mb-2 align-items-center">
