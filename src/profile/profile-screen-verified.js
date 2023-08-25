@@ -27,8 +27,7 @@ function ProfileVerified () {
           userLevel={userLevel}
       />
 
-    <h1> you are at verified users' profile</h1>
-    <ShowMoviesRelated user={user}/>
+    <ShowMoviesRelated username={userName}/>
       {user && (
         <div>
           <HomePage />

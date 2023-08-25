@@ -1,0 +1,45 @@
+/* Add these CSS rules in your stylesheets */
+.show-movies-related-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .show-movies-related-list {
+    display: flex;
+    gap: 20px; /* Add gaps between movie cards */
+    flex-wrap: wrap; /* Allow movies to wrap to the next line */
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .show-movies-related-card {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    
+  }
+  
+  .show-movies-related-poster {
+    width: 100%;
+    max-height: 300px;
+    border-radius: 8px;
+  }
+  
+  .show-movies-related-title {
+    margin-top: 10px;
+  }
+
+  /* Media query for larger screens */
+@media (min-width: 1024px) {
+    .show-movies-related-list {
+      flex-wrap: nowrap; /* Prevent wrapping for larger screens */
+    }
+  
+    .show-movies-related-card {
+      width: auto; /* Let the cards take their natural width */
+    }
+}
+  

@@ -1,50 +1,70 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {useDispatch, useSelector} from "react-redux";
+import"./show-movies-related.css";
 
-const SEARCH_URL = 'http://www.omdbapi.com/?apikey=1ab715db&s=';
-const DEATILS_URL = 'http://www.omdbapi.com/?apikey=1ab715db&i=';
-
-function ShowMoviesRelated(user) {
-    // const currentUser = useSelector((state) => state.user.currentUser);
-    const [directorMovies, setDirectorMovies] = useState([]);
-  
+function ShowMoviesRelated(props) {
+    const [directorInfo, setDirectorInfo] = useState(null);
+    console.log("viewing user's name:", props.username);
     useEffect(() => {
-      async function fetchMoviesByDirector() {
-        // const response = await axios.get(`${SEARCH_URL}${user.firstName}+ " " +${user.lastName}`);
-        const response = await axios.get(`${SEARCH_URL}${user.username}+ " " +${user.username}`);
-        // const directorName = `${user.firstName} ${user.lastName}`;
-        const directorName = `${user.username}`;
+        const options = {
+            method: 'GET',
+            headers: {
+              accept: 'application/json',
+              Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZjMwMWRjN2E1M2EyZDI5M2NjOTQ0NjZhMDg1NjI5ZiIsInN1YiI6IjY0ZTdmMDdlOTBlYTRiMDBlNDlkNDhlNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.W22GozToJmyt9WR__Wc8WDUDjS0Ekezfv328AwOcN2s'
+              //Authorization: `${process.env.SEARCH_PERSON_APP_API_KEY}`
+            }
+          };
+          
+    
+        fetch(`https://api.themoviedb.org/3/search/person?query=${props.username}&include_adult=false&language=en-US&page=1`, options)
+          .then(response => response.json())
+          .then(data => {
+            const director = data.results.find(result => result.known_for_department === 'Directing');
+            setDirectorInfo(director);
+          })
+          .catch(err => console.error(err));
+      }, [props.username]);
+    
   
-        if (response.data && response.data.Search) {
-          const movies = response.data.Search;
-          const directorMovies = movies.filter(movie => movie.Director === directorName);
-  
-          setDirectorMovies(directorMovies);
-        }
-      }
-  
-      if (user.firstName && user.lastName) {
-        fetchMoviesByDirector();
-      }
-    }, [user]);
-  
-    return (
-        <div>
-        <h1> you are seeing a verified account profile</h1>
-        {directorMovies.length > 0 ? (
-          <div>
-            <h1>Movies Directed by {user.firstName} {user.lastName}</h1>
-            <ul>
-              {directorMovies.map(movie => (
-                <li key={movie.imdbID}>{movie.Title}</li>
-              ))}
-            </ul>
-          </div>
-        ) : (
-          <h1>No movies found for the director {user.firstName} {user.lastName}</h1>
-        )}
-      </div>
+    return (      
+    //     <div>
+    //     {directorInfo ? (
+    //       <div>
+    //         <h2>Known For:</h2>
+    //         <ul>
+    //           {directorInfo.known_for.map(movie => (
+    //             <li key={movie.id}>
+    //               <h3>{movie.title}</h3>
+    //               <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt={movie.title} />
+    //             </li>
+    //           ))}
+    //         </ul>
+    //       </div>
+    //     ) : (
+    //       <h1>Loading...</h1>
+    //     )}
+    //   </div>
+    <div className="show-movies-related-container">
+      {directorInfo ? (
+        <div className="show-movies-related-list">
+          {directorInfo.known_for.map(movie => (
+            <div className="show-movies-related-movie" key={movie.id}>
+              <div className="show-movies-related-card">
+                <img
+                  className="show-movies-related-poster"
+                  src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+                  alt={movie.title}
+                />
+                <h3 className="show-movies-related-title">{movie.title}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <h1>Loading...</h1>
+      )}
+    </div>
     );
   }
   

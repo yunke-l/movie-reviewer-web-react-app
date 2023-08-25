@@ -16,6 +16,7 @@ function ViewOtherProfiles() {
   const userDetails = useSelector((state) => state.userDetails.userById);
   const currentUser = useSelector((state) => state.user.currentUser);
   const userRole = userDetails?.role; 
+  const userDetailsName = userDetails?.username;
 
   // const [userDetailsLocal, setUserDetailsLocal] = useState(null); 
 
@@ -34,6 +35,7 @@ function ViewOtherProfiles() {
   if (!userDetails) {
     return <div>Loading...</div>;
   }
+
 
   // console.log('currentUser Following:', currentUser.following);
 
@@ -111,8 +113,7 @@ function ViewOtherProfiles() {
 
       </div>
     </div>
-    
-    {userRole === 'verified' && <ShowMoviesRelated user={userDetails} />}
+    {userRole === 'verified' && <ShowMoviesRelated username={userDetailsName} />}
     <div className="view-other-profiles-user-posts">
       <h3>🎬 {userDetails.username}'s Posts</h3>
       {userPosts.map((post) => (
