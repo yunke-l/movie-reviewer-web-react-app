@@ -36,6 +36,7 @@ const PostItem = (
   const user = useSelector((state) => state.user.currentUser);
   // find the user role
   const userRole = user?.role;
+  const userId = user?._id;
 
 
     return (
@@ -78,6 +79,12 @@ const PostItem = (
             </div>
 
           {userRole === 'admin' && (
+              <div className="close-button" onClick={() => deletepostHandler(post._id)}>
+                X
+              </div>
+          )}
+
+          {userId === post.userId && (
               <div className="close-button" onClick={() => deletepostHandler(post._id)}>
                 X
               </div>
