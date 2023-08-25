@@ -48,7 +48,7 @@ function ViewOwnProfile() {
   //     break;
   // }
 
-  if (currentUser?.role === 'regular') {
+  if (currentUser?.role === 'regular' || currentUser?.role === 'admin') {
     console.log("Going to profile regular");
     ProfileComponent = <ProfileNormal />;
   } else if (currentUser?.role === 'verified') {
