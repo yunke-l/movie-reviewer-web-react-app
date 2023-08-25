@@ -6,24 +6,23 @@ const HomePage = () => {
   console.log('HomePage component is being executed.');
   return (
       <>
-      <div className="row">
-        <div className="col-9">
-          {/* <h1> Home Page</h1> */}
-          <div className="setting-screen">
-            <SettingsScreen/>
+        <div className="row">
+          <div className="col-lg-9 col-md-12">
+            <div className="setting-screen">
+              <SettingsScreen/>
+            </div>
+
+            <div>
+              <PostPage/>
+            </div>
           </div>
-
-          <div>
-
-            <PostPage/>
+          <div className="col-lg-3 col-md-12">
+            <div className="home-page">
+              <FollowSideBar />
+            </div>
           </div>
         </div>
-        <div className="col-3">
-          <div className="home-page">
-            <FollowSideBar />
-          </div>
-        </div>
-      </div>
+
       </>
 
 

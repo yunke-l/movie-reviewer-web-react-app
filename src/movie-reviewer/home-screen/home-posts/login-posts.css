@@ -2,7 +2,7 @@
   padding:10px;
 }
 
-.card-title {
+.login-card-title {
   font-size: 20px;
   margin-top: 13px;
   color: #333;
@@ -22,7 +22,7 @@
 }
 
 
-.post-title {
+.login-post-title {
   font-size: 18px;
   font-weight: bold;
   width: 80%;
@@ -33,7 +33,7 @@
 }
 
 
-.post-content {
+.login-post-content {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 10;
@@ -45,7 +45,7 @@
 }
 
 .post-footer {
-  padding-top: 30%;
+  margin-top: auto;
 }
 
 /*.wd-footer-container {*/

@@ -41,11 +41,13 @@ const LoginPostItem = (
                 src={post.moviePoster}
                 alt={`${post.movieTitle} Movie Poster`}
             />
-            <div className="card-title align-items-center">{post.movieTitle}</div>
+            <div className="login-card-title align-items-center">{post.movieTitle}</div>
           </div>
 
-          <div className="col-md-8" style={{paddingRight: "60px"}}>
+          <div className="col-md-8 align-items-center" style={{paddingRight: "60px" }}>
 
+            {/*align the following component to vertically middle*/}
+            <div className="d-flex flex-column justify-content-center h-100">
             <div className="post-header">
               <div>
                 <Link to={`/reviewer/profile/${post.userId}`}>
@@ -57,17 +59,18 @@ const LoginPostItem = (
                 </Link>
               </div>
               <div className="post-details ">
-                <div className="post-title">{post.title}</div>
+                <div className="login-post-title">{post.title}</div>
                 <div className="post-subtitle text-muted" >
                   {post.username} - {formattedTime}
                 </div>
               </div>
             </div>
-            <div className="post-content mt-3">
+            <div className="login-post-content mt-3">
               {post.content}
             </div>
-            <div className="post-footer mt-3">
+            <div className="post-footer mt-4">
               <PostStats post={post} />
+            </div>
             </div>
           </div>
 

@@ -96,3 +96,31 @@
 .input-label {
   margin-right:10px;
 }
+
+.setting-avatar-selection-container {
+  max-height: 150px; /* Set the desired maximum height */
+  overflow: auto; /* Enable scrolling when content exceeds the container height */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.setting-avatar-selection {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 10px;
+  /* Additional styling for the avatar grid */
+}
+
+
+
+.avatar-image {
+  border: 3px solid transparent; /* Initial border style */
+  cursor: pointer;
+}
+
+.avatar-image.selected {
+  border-color: #007bff; /* Change border color for selected avatar */
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.5); /* Optional: Add a subtle shadow */
+}

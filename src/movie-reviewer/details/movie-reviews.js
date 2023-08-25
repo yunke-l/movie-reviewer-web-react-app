@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import React, {useEffect} from "react";
 import { findPostsThunk } from "../services/posts-thunks";
 import './details.css';
+import './movie-review.css';
 import {Link} from "react-router-dom";
 import {format, utcToZonedTime} from "date-fns-tz";
 
@@ -29,28 +30,58 @@ const MovieReviews = ({ imdbid }) => {
           const formattedTime = format(vancouverCreatedAt, "MMM dd, yyyy HH:mm:ss");
 
           return (
+              // <div key={post._id} className="review-body">
+              //   <div>
+              //   <div className="review-post-header row">
+              //     <div className="col-1 align-items-center">
+              //       <div>
+              //       <Link to={`/reviewer/profile/${post.userId}`}>
+              //         <img
+              //             className="user-avatar rounded-circle"
+              //             style={{ width: "50px", height: "50px" }}
+              //             src={post.userAvatar}
+              //             alt={`${post.username}'s Avatar`}
+              //         />
+              //       </Link>
+              //       </div>
+              //     </div>
+              //     <div className="review-post-details col-11">
+              //       <div className="review-post-title">{post.title}</div>
+              //       <div className="post-subtitle text-muted">
+              //         {post.username} - {formattedTime} {/* Display formatted time */}
+              //       </div>
+              //     </div>
+              //   </div>
+              //   <div className="review-post-content mt-3 col-11">
+              //     {post.content}
+              //   </div>
+              //   </div>
+              // </div>
               <div key={post._id} className="review-body">
-                <div className="post-header">
-                  <div>
-                    <Link to={`/reviewer/profile/${post.userId}`}>
-                      <img
-                          className="user-avatar rounded-circle"
-                          src={post.userAvatar}
-                          alt={`${post.username}'s Avatar`}
-                      />
-                    </Link>
-                  </div>
-                  <div className="post-details ">
-                    <div className="post-title">{post.title}</div>
-                    <div className="post-subtitle text-muted">
-                      {post.username} - {formattedTime} {/* Display formatted time */}
+                <div className="review-container">
+                  <div className="review-header">
+                    <div className="user-avatar-container">
+                      <Link to={`/reviewer/profile/${post.userId}`}>
+                        <img
+                            className="user-avatar"
+                            src={post.userAvatar}
+                            alt={`${post.username}'s Avatar`}
+                        />
+                      </Link>
+                    </div>
+                    <div className="review-details">
+                      <div className="review-title">{post.title}</div>
+                      <div className="post-subtitle">
+                        {post.username} - {formattedTime}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="post-content mt-3">
-                  {post.content}
+                  <div className="review-content">{post.content}</div>
                 </div>
               </div>
+
+
+
           );
         })}
       </div>

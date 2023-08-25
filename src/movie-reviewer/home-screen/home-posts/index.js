@@ -36,7 +36,10 @@ const HomePosts = () => {
                     </div>
                 ) : (
                     posts.map(post => (
-                        <div key={post._id} className="col-md-4 mb-4 align-items-center">
+                        <div
+                            key={post._id}
+                            className="col-lg-4 col-md-6 col-sm-12 mb-4 align-items-center"
+                        >
                           <div>
                             <PostItem post={post} />
                           </div>
@@ -52,7 +55,9 @@ const HomePosts = () => {
               </div>
 
 
-              {currentUser ? (
+
+
+  {currentUser ? (
                   <div className="row">
                     <div className="col-12 mt-4">
                       <br className="black-br" />
@@ -63,14 +68,7 @@ const HomePosts = () => {
                     </div>
 
                   </div>
-                  // <div className="row">
-                  //   <div className="col-12">
-                  //     <h4 className="mb-4 text-primary">Your Recent Posts:</h4>
-                  //   </div>
-                  //   <div className="col-12">
-                  //     <LoginPosts username={currentUser.username} />
-                  //   </div>
-                  // </div>
+
               ) : (
                   <div className="row">
                     <div className="col-12 text-center">
