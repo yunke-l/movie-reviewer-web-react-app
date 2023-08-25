@@ -45,8 +45,9 @@ function ShowMoviesRelated(props) {
     //       <h1>Loading...</h1>
     //     )}
     //   </div>
-    <div className="show-movies-related-container">
+    <div className="show-movies-related-container mb-4">
       {directorInfo ? (
+          <div>
         <div className="show-movies-related-list">
           {directorInfo.known_for.map(movie => (
             <div className="show-movies-related-movie" key={movie.id}>
@@ -60,7 +61,10 @@ function ShowMoviesRelated(props) {
               </div>
             </div>
           ))}
+
         </div>
+        </div>
+
       ) : (
         <h1>Loading...</h1>
       )}
