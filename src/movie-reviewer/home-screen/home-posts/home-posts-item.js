@@ -43,11 +43,18 @@ const PostItem = (
         <div className="post-item card mb-2 align-items-center">
           <div className="post-item-content">
 
-            <img
+            {/* <img
                 className="movie-photo img-fluid"
                 src={post.moviePoster}
                 alt={`${post.movieTitle} Movie Poster`}
-            />
+            /> */}
+            <Link to={`/reviewer/details/${post.imdbid}`}>
+              <img
+                  className="movie-photo img-fluid"
+                  src={post.moviePoster}
+                  alt={`${post.movieTitle} Movie Poster`}
+              />
+            </Link>
             <div className="card-title align-items-center">{post.movieTitle}</div>
           </div>
 
