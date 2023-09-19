@@ -59,9 +59,21 @@ Open [http://localhost:3000](http://localhost:3000) to view the website.
 They can edit their profiles, including change avatar from the given library, change first name and last name.
 They can check follow/follower lists. Both lists can be expanded or collapse by clicking "Show More"/"Show Less". 
 They can see their recent posts.
+They can go to other user's profile page to follow/unfollow.
 ![login-profile](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/f27bd84d-757d-4850-babf-62ac9b1ac9ff)
 
-
+* Regular users can write and publish posts
+![login-search](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/6375438b-ca8f-4bc0-950f-f3bebc8e1f1e)
 
 
 ## Verified User
+* Verified users have all functionalities same as regular users, the only difference is their profile page can show the three latest movies ralated to them.
+![Screenshot 2023-09-19 at 3 53 14 AM](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/49fadf42-64c3-4823-a9d9-0dbc9a1cfb4d)
+
+
+
+
+
+
+
+
