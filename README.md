@@ -58,10 +58,11 @@ Open [http://localhost:3000](http://localhost:3000) to view the website.
 * Regular user has a profile page:
 They can edit their profiles, including change avatar from the given library, change first name and last name.
 They can check follow/follower lists. Both lists can be expanded or collapse by clicking "Show More"/"Show Less". 
-They can see their recent posts.![Screenshot 2023-09-19 at 4 00 20 AM](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/4b68c333-92b7-47df-a240-78970dff09e0)
+They can see their recent posts.
+![Screenshot 2023-09-19 at 4 00 20 AM](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/4b68c333-92b7-47df-a240-78970dff09e0)
 
 They can go to other user's profile page to follow/unfollow.
-![login-profile](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/f27bd84d-757d-4850-babf-62ac9b1ac9ff)
+![Screenshot 2023-09-19 at 4 08 35 AM](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/28438d8d-2842-4787-9b5f-ec84cbd1cfff)
 
 * Regular users can write and publish posts
 ![login-search](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/6375438b-ca8f-4bc0-950f-f3bebc8e1f1e)
@@ -73,6 +74,8 @@ They can go to other user's profile page to follow/unfollow.
 
 ### Admin User
 * Admin user can only be created in the MongoDB database, they have authority to delete all the posts.
+![Screenshot 2023-09-19 at 4 07 48 AM](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/23a5c9d4-b632-4f6d-820f-2f110838b86c)
+
 
 ## Responsive UI
 The web page can automatically change the layout as the window collapse.
