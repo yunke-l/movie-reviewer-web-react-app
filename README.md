@@ -60,10 +60,14 @@ Open [http://localhost:3000](http://localhost:3000) to view the website.
 * Regular user can delete their own posts from the home page by clicking the X button. 
 ![Screenshot 2023-09-19 at 3 42 09 AM](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/25795483-3774-4b5f-97ae-3126f5fdb427)
 
-* Regular user has a profile page: 
+* Regular user has a profile page:
+  
 They can edit their profiles, including change avatar from the given library, change first name and last name. 
+ 
 They can check follow/follower lists. Both lists can be expanded or collapse by clicking "Show More"/"Show Less".  
+ 
 They can see their recent posts. 
+ 
 ![Screenshot 2023-09-19 at 4 00 20 AM](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/4b68c333-92b7-47df-a240-78970dff09e0)
 
 They can go to other user's profile page to follow/unfollow.  
