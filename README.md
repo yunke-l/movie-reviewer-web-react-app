@@ -15,8 +15,8 @@ Open [http://localhost:3000](http://localhost:3000) to view the website.
 * Functionality: Implemented features, differentiating between anonymous users and registered users. These features include movie searches, review submissions, profile customization, and follow/follower. Anonymous users can explore movie information and read reviews. Registered users can submit reviews, customize profile, and engage in social interactions by following and unfollowing other users.
 * Responsive UI: Ensured a responsive user interface that maintains structural integrity and alignment.
 
-
-## Home page
+## Functionalities
+### Home page
 * Home page includes all the posts, and shows the latest post at the beginning. 
 <img width="829" alt="Screenshot 2023-09-19 at 3 26 04 AM" src="https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/fd3655ec-c61a-4264-aa8d-298c2371d9b4">
 <img width="827" alt="Screenshot 2023-09-19 at 3 26 18 AM" src="https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/313a25e3-4c30-48e8-8076-4e779b1009de">
@@ -58,7 +58,8 @@ Open [http://localhost:3000](http://localhost:3000) to view the website.
 * Regular user has a profile page:
 They can edit their profiles, including change avatar from the given library, change first name and last name.
 They can check follow/follower lists. Both lists can be expanded or collapse by clicking "Show More"/"Show Less". 
-They can see their recent posts.
+They can see their recent posts.![Screenshot 2023-09-19 at 4 00 20 AM](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/4b68c333-92b7-47df-a240-78970dff09e0)
+
 They can go to other user's profile page to follow/unfollow.
 ![login-profile](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/f27bd84d-757d-4850-babf-62ac9b1ac9ff)
 
@@ -66,14 +67,14 @@ They can go to other user's profile page to follow/unfollow.
 ![login-search](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/6375438b-ca8f-4bc0-950f-f3bebc8e1f1e)
 
 
-## Verified User
-* Verified users have all functionalities same as regular users, the only difference is their profile page can show the three latest movies ralated to them.
+### Verified User
+* Verified users have all functionalities same as regular users, the only difference is their profile page can show the three latest movies ralated to them. Each of the movie's image is also clickable, will render to the movie's information page.
 ![Screenshot 2023-09-19 at 3 53 14 AM](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/49fadf42-64c3-4823-a9d9-0dbc9a1cfb4d)
 
+### Admin User
+* Admin user can only be created in the MongoDB database, they have authority to delete all the posts.
 
-
-
-
-
-
-
+## Responsive UI
+The web page can automatically change the layout as the window collapse.
+![Screenshot 2023-09-19 at 3 59 32 AM](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/fcc65bba-0534-4cff-af4c-6c98f344a432)
+![Screenshot 2023-09-19 at 4 00 20 AM](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/d5ba1cac-31f9-4514-ae76-37db4d0796f1)
