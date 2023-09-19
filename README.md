@@ -27,29 +27,40 @@ Open [http://localhost:3000](http://localhost:3000) to view the website.
 * The movie's image is clickable, will render to the movie's infomation page.
 ![Screenshot 2023-09-19 at 3 35 13 AM](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/cdc38711-fdf5-4818-8ef6-1cc5d8f47ff6)
 ![Screenshot 2023-09-19 at 3 35 23 AM](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/1aba46e7-ef79-49e5-bc15-933b269bd5fe)
-
+ 
 * The user's avatar is clickable, will render to the user's profile page.
 ![Screenshot 2023-09-19 at 3 37 16 AM](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/cefc420e-3306-4592-8f9d-b00d1c6d4a51)
-
+ 
 
 ### Register page
 * If the checking box is not selected, the user will be registered as a regular user, which can search movies, write and delete posts, follow/unfollow others, modify own profile, view other's profile.
 * The users can choose to select the checking box to be a verified user (resembling industry professionals such as directors or actors). Their profile page will be slightly different from regular users with some informations about their movies.
 ![register](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/e8ef4b06-d117-4a0b-8dee-508eb4815efd)
-
+ 
 ### Loginin page
 ![Screenshot 2023-09-19 at 3 22 17 AM](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/cca41186-5229-4fb3-a158-800aa02dec09)
-
+ 
 ### Search page
 ![anony-search](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/f8d36753-a975-4193-aeae-74bf071374e8)
-
+ 
 ### Anonymous User
  * The anonymous user can only view others' posts, but can not write posts themselves.
-![Anonymous-search](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/20e722d0-104b-47f4-93ce-ef13907dbe14)
-
-
-
+ * The anonymous user can not like/dislike posts.
+ * The anonymous user can not follow/unfollow others.
+ 
 ### Regular User
+* Regular user's home page has a section shows all the posts of the user. 
+![Screenshot 2023-09-19 at 3 40 38 AM](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/d59cb8db-d314-413b-887d-f20e5c3ad111)
+
+* Regular user can delete their own posts from the home page by clicking the X button.
+![Screenshot 2023-09-19 at 3 42 09 AM](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/25795483-3774-4b5f-97ae-3126f5fdb427)
+
+* Regular user has a profile page:
+They can edit their profiles, including change avatar from the given library, change first name and last name.
+They can check follow/follower lists. Both lists can be expanded or collapse by clicking "Show More"/"Show Less". 
+They can see their recent posts.
+![login-profile](https://github.com/yunke-l/movie-reviewer-web-react-app/assets/66773247/f27bd84d-757d-4850-babf-62ac9b1ac9ff)
+
 
 
 
